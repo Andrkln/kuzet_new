@@ -1,0 +1,153 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 100vw;
+}
+
+.CubeImage{
+  height: auto;
+}
+
+.imageClass{
+  border-radius: 100%;
+  width: 95%;
+  height: 95%;
+}
+
+.section-links {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.section-links::before {
+  content: '';
+  position: absolute;
+  width: 10.6ch;
+  height: 55%;
+  bottom: 0;
+  top: 0;
+  right: 1;
+  transform-origin: right;
+  transition: transform .5s ease-in-out;
+  transform: scaleX(0);
+  border-radius: 5%;
+  border-style: solid;
+  border-color: blue;
+  border-top: 0;
+  border-bottom: 0;
+  padding-left: -30px;
+  margin-left: -0.6%;
+  margin-top: 1vh;
+}
+
+.section-links:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.Cube  {
+  margin-top: 20px;
+}
+
+.arrow {
+  transform: rotate(180deg);
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+.introH{
+  margin-top: 100px !important;
+  display: none !important;
+}
+
+.place{
+  height: 20ch;
+}
+
+.flipBox2{  
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+
+.no-scrollbar {
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+  background-color: rgb(252, 226, 114);
+}
+
+
+@media only screen and (max-width: 900px) {
+
+  .flipBox2{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .section-links::before {
+    padding-left: -30px;
+    margin-left: -2.5%;
+    margin-top: 1vh;
+  }
+  
+  .place{
+    height: 10ch !important; 
+  }
+  .introH{
+    width: 20;
+  }
+
+  .QualityBox{
+   display: flex !important;
+   flex-direction: column !important;
+   justify-content: space-around !important;
+   align-items: flex-start !important;
+   margin-right: 10% !important;
+   height: 250ch  !important;
+   padding: 0 !important;
+  }
+
+  .Quality{
+    margin-right: 2000px;
+  }
+
+  .flipBox {
+    width: 80vw !important;
+    align-items: flex-start !important;
+    overflow: visible;
+  }
+
+  .bx {
+    width: 80vw;
+  }
+
+  .Cube  {
+    margin-top: 40px;
+    margin-left: -3ch;
+  }
+  
+  .projects {
+    display: flex;
+    flex-direction: column;
+  }
+
+}
+
+@media only screen and (max-width: 670px) {
+  .foo0 {
+    width: 32ch !important;
+    height: 32ch !important;
+    margin-left: 7%;
+    color: linear-gradient(#cedcf7, rgb(252, 223, 94)), linear-gradient(#cedcf7, rgb(252, 223, 94)), linear-gradient(rgb(252, 223, 94), #d8e3f8), linear-gradient(rgb(252, 223, 94), #d8e3f8);
+  }
+
+
+}
