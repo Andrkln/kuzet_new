@@ -5,22 +5,18 @@ import FullScreenSection from "./FullScreenSection";
 import { Box, Heading } from "@chakra-ui/react";
 import Card from "./Card";
 import { Cube1 } from "./TheCubes"
-import Image from 'next/image';
 import ProjectsOtherSide from "./ProjectsOtherSide";
-
-
-const imgSrc = "/images/arrow.png";
-
+import useIsMobile from "../hooks/isMobile";
 
 const Map = 
   <Box
     className="flipBox2"
-    w={'50vw'}
+    w={'100%'}
     bgColor={'white'}
     backgroundColor={'white'}
-    display="grid"
-    gap="20px"
-    justifyItems={'space-around'}
+    display="flex"
+    justifyItems={'center'}
+    alignItems={'center'}
     >
         <Card> 
           <Cube1 />
@@ -34,6 +30,9 @@ const ProjectsSection = () => {
   const [turn, setTurn] = useState('0')
   const [widthOF, SetwidthOF] = useState('0')
   const  [Content, setContent] = useState(Map)
+  const isMobile = useIsMobile();
+  const button_postion = useIsMobile() ? `flex-end` : `center`;
+  const word_length = useIsMobile() ? 250 : 230;
 
   function handleColorChange() {
     const startTurn = parseInt(turn, 10);
@@ -69,58 +68,45 @@ const ProjectsSection = () => {
       backgroundColor="white"
       p={8}
       spacing={8}
+      minHeight={'80vh'}
     > <Box>
         <Box
         display={'inline-flex'}
         w={'80vw'}
         justifyContent={'space-around'}
-        h={100}
+        h={20}
         >
-          <button onClick={() => handleColorChange()}>
-            <Image  
-              src={imgSrc} 
-              alt="arrow"
-              width={50}
-              height={1}
-              className="arrow"
-            />
-          </button>
                     <Box
                     display={'flex'}
-                    alignItems={'center'}
+                    alignItems={button_postion}
                     justifyItems={'center'}
                     flexDirection={'column'}
-                    w={100}
+                    w={'100vw'}
                     >
                         <Heading 
-                              as="h5" id="projects-section" 
+                              as="h5" 
+                              id="projects-section" 
                               color={colors.project}
                               height={10}
+                              w={250}
+                              onClick={() => handleColorChange()}
                       
                                 >
                               Наши услуги
                         </Heading>
-                        <br></br>
                         <Heading 
                               as="h5" 
                               id="projects-section" 
                               color={colors.qualities}
                               height={10}
                               mt={10}
+                              w={word_length}
+                              onClick={() => handleColorChange()}
                         
                         >
                           Почему мы
                           </Heading>
                     </Box>
-            <button onClick={() => handleColorChange()}>
-                <Image  
-                  src={imgSrc} 
-                  alt="arrow"
-                  width={50}
-                  height={1}
-                  className="arrow-back"
-                />
-          </button>
 
             </Box>
         </Box>

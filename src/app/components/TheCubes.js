@@ -55,7 +55,7 @@ const ismobile = useismobile();
       width: width, height: width, 
       font: `16px`, transform: `rotateY(180deg) translateZ(${z})`,
       text: `Охрана квартир и домов`, 
-      TypeText:`От 7000 тг в месяц`,
+      TypeText:`От 7000 тг в месяц...`,
       imageUrl: img5,
       textColour: `wheat`, 
       speed: 100 },
@@ -64,7 +64,7 @@ const ismobile = useismobile();
   rgb(0, 68, 255)
       `, width: width, height: width, font: `16px`, transform: `rotateY(90deg) translateZ(${z})`, 
       text: `Охрана бизнеса`, 
-      TypeText:`От 15 000 тг в месяц`,
+      TypeText:`От 15 000 тг в месяц...`,
       imageUrl: img3,
       textColour: `wheat`, 
       speed: 90 },
@@ -74,17 +74,15 @@ const ismobile = useismobile();
       width: width, height: width, 
       font: `16px`, transform: `rotateY(-90deg) translateZ(${z})`, 
       text: `Наш результат`, 
-      TypeText:`Болеее 90 % задержаний`,
+      TypeText:`Болеее 90 % задержаний...`,
       imageUrl: img2,
       textColour: `blue`, 
       speed: 60
     },
-      { color: `blue`, width: width, height: width, font: `16px`, transform: `rotateX(90deg) translateZ(${z})`, 
-      text: `Only one css file`, 
-      TypeText:`Styling all project`,
-      imageUrl: img5,
-      textColour: `rgb(245, 1, 245)`, 
-      speed: 100 },
+      { color: `rgb(252, 226, 114)`, width: width, height: width, font: `16px`, transform: `rotateX(90deg) translateZ(${z})`, 
+      speed: 100 
+    
+    },
       { color: `orange`, width: width, height: width, font: `16px`, transform: `rotateX(-90deg) translateZ(${z})`,},
     ];
   

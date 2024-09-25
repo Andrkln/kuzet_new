@@ -23,6 +23,7 @@ const LineEffect = ({ text, speed = 150 }) => {
         <span
           key={index}
           style={{
+            fontSize:"2ch",
             color: index === currentIndex ? 'rgb(73, 73, 247)' : 'white',
             transition: 'color 0.2s',
           }}

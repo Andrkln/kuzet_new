@@ -6,6 +6,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import LineEffect from "../hooks/lineEffect";
 import { faTelegram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import useIsMobile from "../hooks/isMobile";
 
 
 
@@ -41,14 +42,16 @@ const Header = () => {
       backgroundColor="#18181b"
       zIndex="10"
     >
-      <Box color="white" maxWidth="100%" px={15} py={10}
+      <Box color="white" maxWidth="100%" px={-5} py={10}
         >
         <HStack justifyContent="space-between" 
         >
           <nav>
           <HStack spacing={25}>
               <Link
+                  textDecoration={'none'}
                   fontSize={'2ch'}
+                  ml={20}
                   href="https://maps.app.goo.gl/VSWCeybcsamaiAxq9"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -64,7 +67,10 @@ const Header = () => {
 
           </nav>
         <nav>
-            <HStack spacing={20}>
+            <HStack 
+            spacing={15}
+            mr={20}
+            >
               {socials.map((social) => (
                <Link key={social.url} href={social.url} 
                isExternal
@@ -74,7 +80,7 @@ const Header = () => {
                         color: social.colour,
                       },
                     }}>
-                  <FontAwesomeIcon icon={social.icon} size="2xl"/>
+                  <FontAwesomeIcon icon={social.icon} size={useIsMobile() ? 'xl' : '2xl'}/>
               </Link>
             ))}
             </HStack>

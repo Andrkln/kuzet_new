@@ -1,5 +1,22 @@
-import App from "@/pages/_app";
+import LandingSection from "@/components/LandingSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import ContactMeSection from "@/components/ContactMeSection";
+import Alert from "@/components/Alert.client";
+import ChatPlace from "@/components/chatWindow";
 
-export default function Index() {
-  return <App />;
+
+function App() {
+  return (
+    <>
+      <main>
+        <LandingSection />
+        <ProjectsSection />
+        <ContactMeSection />
+        <ChatPlace />
+        <Alert />
+      </main>
+    </>
+)
 }
+
+export default App;

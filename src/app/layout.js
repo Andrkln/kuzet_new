@@ -2,6 +2,9 @@ import { Aleo } from 'next/font/google'
 import "./globals.css";
 import Header from './components/Header';
 import Head from 'next/head';
+import { ChakraProvider } from "@chakra-ui/react";
+import { AlertProvider } from "@/app/context/alertContext.client";
+
 
 const aleo = Aleo({
   weight: '300',
@@ -12,13 +15,12 @@ const aleo = Aleo({
 
 
 const metadata = {
-  title: "Andrey's CV",
+  title: "Кузет Стандарт",
   description: `Explore my comprehensive collection of work, skills, and knowledge. Here, you'll find detailed information about my expertise in front-end development, my work experience, and more. If you have any questions, you can even ask an AI for assistance.
 
   Take a look around to see examples of my projects and how my front-end skills can bring your ideas to life. Whether you're interested in web development, chatbot integration, or database solutions, I'm here to help.
-  
+
   Let's connect and discuss how I can contribute to your next project.`,
-  content: "width=device-width, initial-scale=1.0",
   image: "/images/my_photo.jpg"
 };
 
@@ -30,7 +32,7 @@ export default function RootLayout({ children }) {
         <Head>
         <title>{metadata.title}</title>
         <meta charSet="UTF-8" />
-        <meta name="viewport" content={metadata.content} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
        </Head>
       <body className={aleo.className}>
         <meta property='og:description' content={metadata.description}/>
@@ -40,8 +42,13 @@ export default function RootLayout({ children }) {
         <meta property='og:image:height' content='400' />
         <meta property='og:image:type' content='image/jng' />
         <meta property="og:type" content="website" />
-        <Header/>
+        <Header />
+        <AlertProvider>
+        <Header />
+        <ChakraProvider>
           {children}
+        </ChakraProvider>
+        </AlertProvider>
       </body>
     </html>
   );

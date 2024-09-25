@@ -147,10 +147,9 @@ const Self = ({ title, description, imageSrc }) => {
     </Box>
     return (
     <VStack spacing={4} className="me-slot"
-    pb={100}
     >
         <Box
-        w={'35ch'}
+        w={'34.1ch'}
         >
             <AnimatedBox
             ><div className='foo0'>
@@ -162,10 +161,8 @@ const Self = ({ title, description, imageSrc }) => {
           w={80}
           h={100}
           >
-                <Text fontSize="2.8vh" fontWeight="bold" color={'blue'}>
-                    {title}
-                </Text>
-                <NeonWord text={` ${description}`} href="https://t.me/KuzetKorgau_bot/" />
+                <NeonWord 
+                text={` ${description}`} href="https://t.me/KuzetKorgau_bot/" />
                 <br></br>
           </VStack>
       </VStack>

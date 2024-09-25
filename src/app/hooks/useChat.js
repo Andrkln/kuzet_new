@@ -6,13 +6,11 @@ const useChating = () => {
     const [responses, setResponses] = useState({});
     const [error, setError] = useState(null);
     const [chat_id, setChatId] = useState(null);
-    const [sentence, setSentence] = useState(''); // Changed to state variable
 
     const submitChat = async (ChatData) => {
         setIsLoading(true);
         setError(null);
-        setSentence(''); // Reset sentence at the start
-        setResponses({}); // Reset responses if needed
+        setResponses({});
 
         try {
             const fetchResponse = await fetch('/api/chating', {
@@ -35,7 +33,6 @@ const useChating = () => {
             while (true) {
                 const { done, value } = await reader.read();
                 if (done) break;
-                
                 const preChunkStr = decoder.decode(value);
                 const preChunks = (incompleteChunk + preChunkStr).split('\n');
                 incompleteChunk = preChunks.pop();
@@ -48,10 +45,7 @@ const useChating = () => {
                             setChatId(chunk.chat_id);
                         }
                         if (chunk.id && chunk.message) {
-                            // Update sentence state
-                            setSentence(prevSentence => prevSentence + chunk.message);
 
-                            // Accumulate responses
                             setResponses(prevResponses => ({
                                 ...prevResponses,
                                 [chunk.id]: (prevResponses[chunk.id] || '') + chunk.message
@@ -71,8 +65,6 @@ const useChating = () => {
                         setChatId(chunk.chat_id);
                     }
                     if (chunk.id && chunk.message) {
-                        setSentence(prevSentence => prevSentence + chunk.message);
-
                         setResponses(prevResponses => ({
                             ...prevResponses,
                             [chunk.id]: (prevResponses[chunk.id] || '') + chunk.message
@@ -91,7 +83,7 @@ const useChating = () => {
         }
     };
 
-    return { isLoading, responses, sentence, error, chat_id, submit: submitChat };
+    return { isLoading, responses, error, chat_id, submit: submitChat };
 };
 
 export default useChating;

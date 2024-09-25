@@ -62,7 +62,7 @@ const listColor = '#6a6af5'
        <Heading as="h1" id="contactme-section"
        color='white' w="45vw" align='center'
        > 
-         Contact me 
+         Стать клиентом
        </Heading> 
        <Box p={6} rounded="md" w="70vw"> 
          <form onSubmit={formik.handleSubmit}> 

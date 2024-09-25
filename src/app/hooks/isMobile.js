@@ -1,7 +1,7 @@
-'use client';
+'use client'; 
 import { useState, useEffect } from 'react';
 
-const useismobile = () => {
+const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -10,14 +10,16 @@ const useismobile = () => {
       setIsMobile(match);
     };
 
-    checkIfMobile();
+    checkIfMobile(); // Initial check
 
-    window.addEventListener('resize', checkIfMobile);
+    window.addEventListener('resize', checkIfMobile); // Listen to resize event
 
-    return () => window.removeEventListener('resize', checkIfMobile);
+    return () => {
+      window.removeEventListener('resize', checkIfMobile); // Cleanup on unmount
+    };
   }, []);
 
   return isMobile;
 };
 
-export default useismobile;
+export default useIsMobile;

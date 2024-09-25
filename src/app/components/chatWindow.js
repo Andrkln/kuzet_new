@@ -1,8 +1,8 @@
 'use client';
 import React, { useState, useEffect } from "react";
-import useChating from "../hooks/useChating";
 import { Box, Button, Textarea, VStack, Slide } from "@chakra-ui/react";
-import useismobile from "../hooks/isMobile";
+import useismobile from "@/hooks/isMobile";
+import useChating from '@/hooks/useChat';
 
 const ChatPlace = () => {
     const { isLoading, responses: responsesFromHook, error, chat_id, submit } = useChating();
@@ -15,7 +15,6 @@ const ChatPlace = () => {
     const toggleChatWindow = () => setShowChatWindow(!showChatWindow);
 
     useEffect(() => {
-        // Merge responses from hook with local responses
         if (responsesFromHook && Object.keys(responsesFromHook).length > 0) {
             setResponses(prevResponses => ({
                 ...prevResponses,
@@ -75,13 +74,13 @@ const ChatPlace = () => {
                                     {
                                         Object.entries(responses).map(([id, response]) => (
                                             <Box
-                                                backgroundColor={id.startsWith('user-') ? "rgb(48, 198, 248)" : "white"}
+                                                backgroundColor={id.startsWith('user-') ? "#E0F7FA" : "white"}
                                                 borderRadius="5px"
                                                 borderStyle="solid"
                                                 borderWidth="1px"
                                                 borderColor="black"
                                                 key={id}
-                                                w={'20ch'}
+                                                w={'25ch'}
                                                 mb={5}
                                                 minHeight={'20px'}
                                                 p={1}

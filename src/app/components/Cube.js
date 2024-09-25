@@ -1,8 +1,11 @@
-import React, { useState, useRef } from 'react';
-import { Box, Text, HStack, VStack } from '@chakra-ui/react';
-import TypingEffect from "../hooks/TypeEffect.client";
+import React, { useState, useRef, useEffect } from 'react';
+import { Box, Text, VStack, HStack } from '@chakra-ui/react';
 import Image from 'next/image';
-  
+import Link from 'next/link';
+
+const sleep = (ms) => {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+};
 
 
 const Styles = ({ color, width, height, font, transform }) => ({
@@ -11,7 +14,7 @@ const Styles = ({ color, width, height, font, transform }) => ({
   height,
   background: color,
   border: '1px solid #ccc',
-  display: 'flex',
+  display: 'flex',  
   alignItems: 'center',
   justifyContent: 'center',
   fontSize: font,
@@ -19,7 +22,7 @@ const Styles = ({ color, width, height, font, transform }) => ({
   userSelect: 'none',
 });
 
-const CubeFace = ({ color, width, height, font, transform, text, TypeText, imageUrl, speed, textColour, main_text_color='white' }) => (
+const CubeFace = ({ color, width, height, font, transform, text, TypeText, imageUrl, speed, textColour, main_text_color='white', link='/home' }) => (
   <Box sx={Styles({ color, width, height, font, transform })}
   >
     <VStack>
@@ -36,7 +39,10 @@ const CubeFace = ({ color, width, height, font, transform, text, TypeText, image
       color={main_text_color}
       >{text}</Text>}
       {TypeText && (
-        <Text
+        <Link
+        href={link}
+        >
+          <Text
           sx={{
             background: textColour,
             WebkitBackgroundClip: 'text',
@@ -46,6 +52,7 @@ const CubeFace = ({ color, width, height, font, transform, text, TypeText, image
         >
           {TypeText}
         </Text>
+        </Link>
       )}
     </VStack>
   </Box>
@@ -53,10 +60,13 @@ const CubeFace = ({ color, width, height, font, transform, text, TypeText, image
 
 const Cube = ({ faces }) => {
   const [rotation, setRotation] = useState({ rotateX: -30, rotateY: 30 });
+  const [isInteracting, setIsInteracting] = useState(false);
   const isDragging = useRef(false);
   const startPos = useRef({ x: 0, y: 0 });
+  const animationFrameRef = useRef(null);
 
   const handleStart = (e) => {
+    setIsInteracting(true);
     isDragging.current = true;
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
     const clientY = e.touches ? e.touches[0].clientY : e.clientY;
@@ -71,17 +81,37 @@ const Cube = ({ faces }) => {
       const deltaX = clientX - startPos.current.x;
       const deltaY = clientY - startPos.current.y;
 
-      setRotation({
-        rotateX: rotation.rotateX - deltaY / 150,
-        rotateY: rotation.rotateY + deltaX / 150,
-      });
+      setRotation((prev) => ({
+        rotateX: prev.rotateX - deltaY / 150,
+        rotateY: prev.rotateY + deltaX / 150,
+      }));
       e.preventDefault();
     }
   };
 
-  const handleEnd = () => {
+  const handleEnd = async () => {
     isDragging.current = false;
+    await sleep(2000);
+    setIsInteracting(false);
   };
+
+  const animateCube = () => {
+    if (!isInteracting) {
+      setRotation((prev) => ({
+        rotateX: prev.rotateX = - 20,
+        rotateY: prev.rotateY + 0.3,
+      }));
+    }
+    animationFrameRef.current = requestAnimationFrame(animateCube);
+  };
+
+  useEffect(() => {
+    animationFrameRef.current = requestAnimationFrame(animateCube);
+
+    return () => {
+      cancelAnimationFrame(animationFrameRef.current);
+    };
+  }, [isInteracting]);
 
   return (
     <HStack
@@ -102,7 +132,7 @@ const Cube = ({ faces }) => {
           transformStyle: 'preserve-3d',
           transform: `rotateX(${rotation.rotateX}deg) rotateY(${rotation.rotateY}deg)`,
           transition: 'transform 0.1s linear',
-          userSelect: 'none' 
+          userSelect: 'none',
         }}
         className="Cube"
       >

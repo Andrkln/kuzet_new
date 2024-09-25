@@ -1,7 +1,7 @@
 import React from 'react';
 
 const neonRedEffect = {
-  fontSize: '2ch',
+  fontSize: '2.6ch',
   textAlign: 'center',
   color: 'blue',
   textDecoration: 'none',
@@ -39,7 +39,7 @@ const addKeyframes = () => {
   styleSheet.insertRule(neonRedKeyframes, styleSheet.cssRules.length);
 };
 
-const NeonRedText = ({ text, href }) => {
+const NeonRedText = ({ text, href, font_size='2.6vh' }) => {
   React.useEffect(() => {
     addKeyframes();
   }, []);
@@ -47,7 +47,9 @@ const NeonRedText = ({ text, href }) => {
   return (
     <b>
         <p style={neonRedEffect}>
-      <a href={href} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+      <a 
+      fontSize={font_size}
+      href={href} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
         {text}
       </a>
     </p>
