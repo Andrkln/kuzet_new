@@ -1,8 +1,9 @@
 'use client';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Box, Button, Textarea, VStack, Slide } from "@chakra-ui/react";
 import useismobile from "@/hooks/isMobile";
 import useChating from '@/hooks/useChat';
+import useIsMobile from "@/hooks/isMobile";
 
 const ChatPlace = () => {
     const { isLoading, responses: responsesFromHook, error, chat_id, submit } = useChating();
@@ -11,6 +12,10 @@ const ChatPlace = () => {
     const [showChatWindow, setShowChatWindow] = useState(false);
     const ismobile = useismobile();
     const pd = ismobile ? `3%` : `0.5%`;
+    const mobile = useIsMobile();
+
+    // Ref for the chat container
+    const chatBoxRef = useRef();
 
     const toggleChatWindow = () => setShowChatWindow(!showChatWindow);
 
@@ -22,6 +27,13 @@ const ChatPlace = () => {
             }));
         }
     }, [responsesFromHook]);
+
+    // Scroll to bottom when a new message is added
+    useEffect(() => {
+        if (chatBoxRef.current) {
+            chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
+        }
+    }, [responses]);
 
     const handleSendMessage = async (e) => {
         e.preventDefault();
@@ -49,11 +61,13 @@ const ChatPlace = () => {
             <Slide
                 direction="bottom"
                 in={showChatWindow}
+                w={50}
+                h={40}
                 style={{
-                    width: "30ch",
+                    width: mobile ? '35ch': '45ch',
                     maxWidth: "sm",
                     left: '10',
-                    height: '48ch',
+                    height: '70ch',
                     padding: pd,
                     position: 'fixed'
                 }}
@@ -67,10 +81,16 @@ const ChatPlace = () => {
                         w="full"
                         borderWidth={3}
                         borderColor={'blue'}
+                        h={'65vh'}
                     >
                         <form onSubmit={handleSendMessage} style={{ width: "small" }}>
                             <VStack spacing={5}>
-                                <Box h="120px" overflowY="auto" className="no-scrollbar">
+                                <Box
+                                    h={320}
+                                    overflowY="auto"
+                                    className="no-scrollbar"
+                                    ref={chatBoxRef} // Attach ref to the Box for scrolling
+                                >
                                     {
                                         Object.entries(responses).map(([id, response]) => (
                                             <Box
@@ -80,7 +100,7 @@ const ChatPlace = () => {
                                                 borderWidth="1px"
                                                 borderColor="black"
                                                 key={id}
-                                                w={'25ch'}
+                                                w={mobile ? '30ch': '40ch'}
                                                 mb={5}
                                                 minHeight={'20px'}
                                                 p={1}
@@ -91,13 +111,14 @@ const ChatPlace = () => {
                                     }
                                 </Box>
                                 <Textarea
-                                    maxWidth={60}
-                                    placeholder="Вы можете задать мне любой вопрос о кузет коргау"
+                                    maxWidth={'150%'}
+                                    placeholder="Вы можете задать мне любой вопрос о нашей компаний"
                                     value={message}
                                     onChange={(e) => setMessage(e.target.value)}
                                     disabled={isLoading}
                                     color={'blue'}
                                     borderColor="black"
+                                    w={mobile ? '30ch': '40ch'}
                                     sx={{
                                         '::placeholder': {
                                             color: 'blue',
