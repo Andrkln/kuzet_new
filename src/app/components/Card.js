@@ -2,6 +2,7 @@
 import { Heading, VStack, Box } from "@chakra-ui/react";
 import React from "react";
 
+
 const Card = ({ children }) => {
   return (
     <Box
