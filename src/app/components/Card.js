@@ -7,7 +7,7 @@ const Card = ({ children }) => {
   return (
     <Box
     display={'flex'}
-    >   
+    >
       <VStack spacing={4}>
         <Heading fontSize={['md', 'lg', 'xl']} fontWeight="bold" color='black'>
         </Heading>

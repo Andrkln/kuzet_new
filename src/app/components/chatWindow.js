@@ -14,7 +14,6 @@ const ChatPlace = () => {
     const pd = ismobile ? `3%` : `0.5%`;
     const mobile = useIsMobile();
 
-    // Ref for the chat container
     const chatBoxRef = useRef();
 
     const toggleChatWindow = () => setShowChatWindow(!showChatWindow);
@@ -28,7 +27,6 @@ const ChatPlace = () => {
         }
     }, [responsesFromHook]);
 
-    // Scroll to bottom when a new message is added
     useEffect(() => {
         if (chatBoxRef.current) {
             chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
@@ -61,35 +59,34 @@ const ChatPlace = () => {
             <Slide
                 direction="bottom"
                 in={showChatWindow}
-                w={50}
-                h={40}
                 style={{
                     width: mobile ? '35ch': '45ch',
                     maxWidth: "sm",
                     left: '10',
-                    height: '70ch',
+                    height: mobile ? '80vh': '70ch',
                     padding: pd,
                     position: 'fixed'
                 }}
             >
                 {showChatWindow && (
                     <VStack
-                        backgroundColor="wheat"
+                        backgroundColor="rgb(134, 250, 159)"
                         borderRadius="15px"
                         p={4}
                         spacing={4}
                         w="full"
                         borderWidth={3}
                         borderColor={'blue'}
-                        h={'65vh'}
                     >
                         <form onSubmit={handleSendMessage} style={{ width: "small" }}>
                             <VStack spacing={5}>
                                 <Box
-                                    h={320}
+                                    minHeight={'40vh'}
                                     overflowY="auto"
                                     className="no-scrollbar"
-                                    ref={chatBoxRef} // Attach ref to the Box for scrolling
+                                    ref={chatBoxRef}
+                                    h={'40vh'}
+                                    maxHeight={'65vh'}
                                 >
                                     {
                                         Object.entries(responses).map(([id, response]) => (
@@ -101,7 +98,7 @@ const ChatPlace = () => {
                                                 borderColor="black"
                                                 key={id}
                                                 w={mobile ? '30ch': '40ch'}
-                                                mb={5}
+                                                mt={5}
                                                 minHeight={'20px'}
                                                 p={1}
                                             >
@@ -117,6 +114,7 @@ const ChatPlace = () => {
                                     onChange={(e) => setMessage(e.target.value)}
                                     disabled={isLoading}
                                     color={'blue'}
+                                    _hover={'red'}
                                     borderColor="black"
                                     w={mobile ? '30ch': '40ch'}
                                     sx={{
@@ -137,7 +135,7 @@ const ChatPlace = () => {
                                         bg: "white",
                                     }}
                                 >
-                                    Send
+                                    Отправить
                                 </Button>
                             </VStack>
                         </form>

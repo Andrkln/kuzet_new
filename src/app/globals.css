@@ -77,7 +77,7 @@ body {
 
 .no-scrollbar::-webkit-scrollbar {
   display: none; /* For Chrome, Safari, and Opera */
-  background-color: rgb(252, 226, 114);
+  background-color: rgb(134, 250, 159);
 }
 
 
