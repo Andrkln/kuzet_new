@@ -108,6 +108,12 @@ const ChatPlace = () => {
                                     }
                                 </Box>
                                 <Textarea
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter' && !e.shiftKey) {
+                                        e.preventDefault(); // Prevents newline insertion
+                                        handleSendMessage(e); // Calls the submit function
+                                    }
+                                }}
                                     maxWidth={'150%'}
                                     placeholder="Вы можете задать мне любой вопрос о нашей компаний"
                                     value={message}
