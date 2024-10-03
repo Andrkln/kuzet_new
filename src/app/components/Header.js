@@ -41,7 +41,7 @@ const Header = () => {
       backgroundColor="#18181b"
       zIndex="10"
     >
-      <Box color="white" maxWidth="100%" px={-5} py={10}
+      <Box color="white" maxWidth="100%" px={-3} py={3}
         >
         <HStack justifyContent="space-between" 
         >
@@ -50,7 +50,7 @@ const Header = () => {
               <Link
                   textDecoration={'none'}
                   fontSize={'2ch'}
-                  ml={20}
+                  ml={10}
                   href="https://maps.app.goo.gl/VSWCeybcsamaiAxq9"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -68,7 +68,7 @@ const Header = () => {
         <nav>
             <HStack 
             spacing={15}
-            mr={20}
+            mr={10}
             >
               {socials.map((social) => (
                <Link key={social.url} href={social.url} 

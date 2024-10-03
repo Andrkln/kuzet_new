@@ -1,6 +1,7 @@
 'use client'
 import { Text, Box } from '@chakra-ui/react';
 import OfferBlock from '@/components/photoOffers';
+import ChatPlace from '@/components/chatWindow';
 
 function HomePage() {
 
@@ -27,6 +28,7 @@ function HomePage() {
       text={'lonvibhwegeiqvnrneiqrvnoieqrbbhoeqrjnevfqnjqefrjinveqrjnoeoqvjqevhbqevhojfhjofveqkjnfvkjnashobfdvahjoafvdjknfvhjhjbfvhjboefovhjbefvqhbjfvhjbfeqvojbh'}
       
       />
+      <ChatPlace />
     </Box>
   );
 }

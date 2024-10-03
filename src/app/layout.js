@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from './components/Header';
 import Head from 'next/head';
 import { ChakraProvider } from "@chakra-ui/react";
-import { AlertProvider } from "@/app/context/alertContext.client";
+import { AlertProvider } from "@/context/alertContext.client";
 
 
 const aleo = Aleo({
@@ -42,9 +42,8 @@ export default function RootLayout({ children }) {
         <meta property='og:image:height' content='400' />
         <meta property='og:image:type' content='image/jng' />
         <meta property="og:type" content="website" />
-        <Header />
+        {/* <Header /> */}
         <AlertProvider>
-        <Header />
         <ChakraProvider>
           {children}
         </ChakraProvider>

@@ -11,7 +11,7 @@ export async function POST(request) {
     };
 
 
-    const response = await fetch('http://127.0.0.1:8000/api/chat/', {
+    const response = await fetch('https://kuzet-51cbf6d22e1b.herokuapp.com/api/chat/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

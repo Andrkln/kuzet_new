@@ -63,7 +63,7 @@ const ChatPlace = () => {
                     width: mobile ? '35ch': '45ch',
                     maxWidth: "sm",
                     left: '10',
-                    height: mobile ? '80vh': '70ch',
+                    height: mobile ? '80vh': '77vh',
                     padding: pd,
                     position: 'fixed'
                 }}
