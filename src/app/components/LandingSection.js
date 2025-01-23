@@ -12,7 +12,7 @@ const LandingSection = () => {
     <FullScreenSection
       justifyContent={'center'}
       alignItems="center"
-      backgroundColor="rgb(98, 250, 131)"
+      backgroundColor="rgb(252, 223, 94)"
       flexGrow={2}
       className={'IntroH'}
     ><div

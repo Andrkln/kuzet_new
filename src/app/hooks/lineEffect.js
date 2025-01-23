@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react';
 
-const LineEffect = ({ text, speed = 150 }) => {
+const LineEffect = ({ text, speed = 125 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const LineEffect = ({ text, speed = 150 }) => {
           key={index}
           style={{
             fontSize:"2ch",
-            color: index === currentIndex ? 'rgb(73, 73, 247)' : 'white',
+            color: index === currentIndex ? 'yellow' : 'white',
             transition: 'color 0.2s',
           }}
         >

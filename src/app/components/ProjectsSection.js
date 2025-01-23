@@ -2,12 +2,11 @@
 import React from "react";
 import { useState } from "react";
 import FullScreenSection from "./FullScreenSection";
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading, Link } from "@chakra-ui/react";
 import Card from "./Card";
 import { Cube1 } from "./TheCubes"
 import ProjectsOtherSide from "./ProjectsOtherSide";
 import useIsMobile from "../hooks/isMobile";
-
 const Map = 
   <Box
     className="flipBox2"
@@ -33,6 +32,7 @@ const ProjectsSection = () => {
   const isMobile = useIsMobile();
   const button_postion = useIsMobile() ? `flex-end` : `center`;
   const word_length = useIsMobile() ? 250 : 230;
+  const [phone_show, setPhone] = useState('none')
 
   function handleColorChange() {
     const startTurn = parseInt(turn, 10);

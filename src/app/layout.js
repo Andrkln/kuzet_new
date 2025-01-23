@@ -1,53 +1,40 @@
-import { Aleo } from 'next/font/google'
+import { Aleo } from 'next/font/google';
 import "./globals.css";
-import Header from './components/Header';
-import Head from 'next/head';
 import { ChakraProvider } from "@chakra-ui/react";
-import { AlertProvider } from "@/context/alertContext.client";
-
 
 const aleo = Aleo({
   weight: '300',
-  subsets: ['latin'],
+  subsets: ['cyrillic'],
   display: 'swap',
-  preload: false
-})
+  preload: false,
+});
 
-
-const metadata = {
+export const metadata = {
   title: "Кузет Стандарт",
   description: `Explore my comprehensive collection of work, skills, and knowledge. Here, you'll find detailed information about my expertise in front-end development, my work experience, and more. If you have any questions, you can even ask an AI for assistance.
-
   Take a look around to see examples of my projects and how my front-end skills can bring your ideas to life. Whether you're interested in web development, chatbot integration, or database solutions, I'm here to help.
-
   Let's connect and discuss how I can contribute to your next project.`,
-  image: "/images/my_photo.jpg"
+  metadataBase: new URL("http://localhost:3000"),
+  openGraph: {
+    title: "Кузет Стандарт",
+    description: `Explore my comprehensive collection of work, skills, and knowledge. Here, you'll find detailed information about my expertise in front-end development, my work experience, and more.`,
+    images: [
+      {
+        url: "/images/my_photo.jpg",
+        width: 400,
+        height: 400,
+        type: "image/jng",
+      },
+    ],
+    type: "website",
+  },
 };
-
-
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-        <Head>
-        <title>{metadata.title}</title>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-       </Head>
-      <body className={aleo.className}>
-        <meta property='og:description' content={metadata.description}/>
-        <meta property='og:title' content={metadata.title} />
-        <meta property='og:image' content={metadata.image} />
-        <meta property='og:image:width' content='400' />
-        <meta property='og:image:height' content='400' />
-        <meta property='og:image:type' content='image/jng' />
-        <meta property="og:type" content="website" />
-        {/* <Header /> */}
-        <AlertProvider>
-        <ChakraProvider>
-          {children}
-        </ChakraProvider>
-        </AlertProvider>
+    <html lang="en" className={aleo.className}>
+      <body>
+        <ChakraProvider>{children}</ChakraProvider>
       </body>
     </html>
   );

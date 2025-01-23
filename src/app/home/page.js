@@ -2,13 +2,17 @@
 import { Text, Box } from '@chakra-ui/react';
 import OfferBlock from '@/components/photoOffers';
 import ChatPlace from '@/components/chatWindow';
+import Header from '@/components/Header';
 
 function HomePage() {
 
   let img1 = "/images/kz.png";
 
   return (
-    <Box>
+    <Box
+    w={'100vw'}
+    >
+          <Header/>
       <Text
           pt={20}
           as="h1"

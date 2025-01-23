@@ -94,7 +94,6 @@ const selfCss = css`
     display: flex;
     align-items: center;
     justify-content: center;
-    border: solid black 2px; 
   }
 
   .foo2 {

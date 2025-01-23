@@ -1,7 +1,7 @@
+'use client'
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box, HStack, Link } from "@chakra-ui/react";
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import LineEffect from "../hooks/lineEffect";
 import { faTelegram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
@@ -12,7 +12,7 @@ const socials = [
   {
     icon: faPhone,
     url: "tel:+77719333330",
-    colour: 'blue'
+    colour: 'grey'
   },
   {
     icon: faWhatsapp,
@@ -27,6 +27,7 @@ const socials = [
 ];
 
 const Header = () => {
+  const isMobile = typeof window !== 'undefined' && useIsMobile();
 
   return (
     <Box
@@ -49,7 +50,7 @@ const Header = () => {
               <Link
                   textDecoration={'none'}
                   fontSize={'2ch'}
-                  ml={10}
+                  ml={8}
                   href="https://maps.app.goo.gl/VSWCeybcsamaiAxq9"
                   target="_blank"
                   rel="noopener noreferrer"

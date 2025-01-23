@@ -1,6 +1,10 @@
 import rest from "@/hooks/key_store"; // Import the `rest` variable from the key_store
 
-'https://restgpt-cfbbd06a935f.herokuapp.com/api/chat/'
+
+ let test =  'http://127.0.0.1:8000/api/chat/'
+
+ let product = 'https://kuzet-51cbf6d22e1b.herokuapp.com/api/chat/'
+
 
 export async function POST(request) {
   try {
@@ -11,7 +15,7 @@ export async function POST(request) {
     };
 
 
-    const response = await fetch('https://kuzet-51cbf6d22e1b.herokuapp.com/api/chat/', {
+    const response = await fetch(product, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -1,21 +1,27 @@
-'use client'; 
+'use client'
 import { useState, useEffect } from 'react';
 
 const useIsMobile = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => {
+    // Provide a default value based on an environment check
+    return typeof window !== 'undefined' ? window.matchMedia("(max-width: 900px)").matches : false;
+  });
 
   useEffect(() => {
+    // Function to check if the screen is mobile
     const checkIfMobile = () => {
-      const match = window.matchMedia("(max-width: 900px)").matches;
-      setIsMobile(match);
+      setIsMobile(window.matchMedia("(max-width: 900px)").matches);
     };
 
-    checkIfMobile(); // Initial check
+    // Check on mount
+    checkIfMobile();
 
-    window.addEventListener('resize', checkIfMobile); // Listen to resize event
+    // Add resize event listener
+    window.addEventListener('resize', checkIfMobile);
 
     return () => {
-      window.removeEventListener('resize', checkIfMobile); // Cleanup on unmount
+      // Clean up listener on unmount
+      window.removeEventListener('resize', checkIfMobile);
     };
   }, []);
 
