@@ -1,7 +1,7 @@
 import rest from "@/hooks/key_store"; // Import the `rest` variable from the key_store
 
 
- let test =  'http://127.0.0.1:8000/api/chat/'
+ let test =  'http://127.0.0.1:8000/api/chat/'  
 
  let product = 'https://kuzet-51cbf6d22e1b.herokuapp.com/api/chat/'
 

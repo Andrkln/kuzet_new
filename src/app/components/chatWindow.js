@@ -40,7 +40,7 @@ const ChatPlace = () => {
         e.preventDefault();
         if (!message.trim()) return;
 
-        const userMessageId = `user-123`;
+        const userMessageId = `user-${Date.now()}`;
         setResponses(prevResponses => ({
             ...prevResponses,
             [userMessageId]: message
@@ -48,11 +48,6 @@ const ChatPlace = () => {
 
         await submit({ message, chat_id });
         setMessage("");
-
-        // Refocus the Textarea after submission
-        if (textareaRef.current) {
-            textareaRef.current.focus();
-        }
     };
 
     return (
