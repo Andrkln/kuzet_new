@@ -161,7 +161,7 @@ const Self = ({ title, description, imageSrc }) => {
           h={100}
           >
                 <NeonWord 
-                text={` ${description}`} href="https://t.me/KuzetKorgau_bot/" />
+                text={` ${description}`} href="https://t.me/AlmatyKuzetBot?start=discount" />
                 <br></br>
           </VStack>
       </VStack>
