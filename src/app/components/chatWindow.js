@@ -152,7 +152,9 @@ const ChatPlace = () => {
                     </VStack>
                 )}
             </Slide>
-            <Button onClick={toggleChatWindow}>
+            <Button onClick={toggleChatWindow}
+            fontSize={'bold'}
+            >
                 {showChatWindow ? "скрыть чат" : "чат с AI"}
             </Button>
         </VStack>

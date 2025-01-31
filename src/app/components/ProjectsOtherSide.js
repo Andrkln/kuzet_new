@@ -8,95 +8,100 @@ let img1 = "/images/kkorgau3.jpg";
 
 
 
+import Image from "next/image"; // Import Next.js Image component
+
 const Why_box = ({ text, img, text2 }) => {
+  const ismobile = useismobile();
 
-  const ismobile = useismobile()
-
-    return (
+  return (
+    <Box
+      borderStyle="solid"
+      borderColor="black"
+      borderWidth={1}
+      display="flex"
+      flexDirection="column"
+      justifyContent="flex-end"
+      alignItems="center"
+      w={ismobile ? "80vw" : "20vw"}
+      mb="25%"
+      fontSize={["200%", "120%"]}
+      overflow="hidden"
+      ml={[0, 8]}
+      borderRadius="2.5%"
+    >
+      {/* Use <Image> instead of backgroundImage */}
       <Box
-        borderStyle={'solid'}
-        borderColor={'black'}
-        borderWidth={1}
-        display={'flex'}
-        flexDirection={'column'}
-        justifyContent={'flex-end'}
-        alignItems={'center'}
-        w={ismobile ? '80vw' : '20vw'}
-        mb={'25%'}
-        fontSize={['200%', '120%']}
+        position="relative"
+        height={["40vh", "30vh"]}
+        width="100%"
         overflow="hidden"
-        ml={[0,8]}
-        borderRadius={'2.5%'}
+      >
+        <Image
+          src={img} // ✅ Loads faster with Next.js optimization
+          alt={text}
+          layout="fill"
+          objectFit="cover"
+          priority // ✅ Preload for better performance
+        />
+        <Box
+          position="absolute"
+          top={0}
+          left={0}
+          right={0}
+          bottom={0}
+          backgroundColor="rgba(0, 0, 0, 0.5)"
+          zIndex={0}
+        />
+        <Box
+          position="absolute"
+          zIndex={1}
+          top="50%"
+          left="50%"
+          transform="translate(-50%, -50%)"
+          textAlign="center"
+          color="white"
+          fontWeight="bold"
+          fontSize={["lg", "xl"]}
         >
-              <Box
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                backgroundSize="cover"
-                backgroundImage={`url(${img})`}
-                height={['40vh', '30vh']}
-                w="100%"
-                color="white"
-                position="relative"
-                _before={{
-                  content: `""`,
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  backgroundColor: "rgba(0, 0, 0, 0.5)",
-                  zIndex: 0,
-                }}
-                zIndex={1}
-              >
-                <Box 
-                position="relative" 
-                zIndex={1}
-                textAlign={'center'}
-                wordBreak={'break-word'}
-                >
-                  {text}
-                </Box>
-              </Box>
-          
-          <Box
-          w={'100%'}
-          h={0.5}
-          display={'flex'}
-          justifyContent={'center'}
-          alignItems="center"
-          boxShadow="0 0 15px rgba(255, 255, 255, 0.8)"
-          >
-            <Box
-            bg={'white'}
-            borderRadius={100}
-            w={['20%','4%']}
-            h={['2%', '6%']}
-            position={'absolute'}
-            zIndex={2}
-            boxShadow="0 0 15px rgba(255, 255, 255, 0.8)"
-            >
-
-            </Box>
-          </Box>
-          
-
-          <Box
-             wordBreak={'break-word'}
-             alignItems={'center'}
-             justifyContent={'center'}
-             display={'flex'}
-             height={['40vh', '30vh']}
-             bg={'rgb(252, 223, 94)'}
-             w={'100%'}
-             textAlign={'center'}
-        >
-              {text2}
-          </Box>
+          {text}
+        </Box>
       </Box>
-    )
-}
+
+      <Box
+        w="100%"
+        h={0.5}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        boxShadow="0 0 15px rgba(255, 255, 255, 0.8)"
+      >
+        <Box
+          bg="white"
+          borderRadius={100}
+          w={["20%", "4%"]}
+          h={["2%", "6%"]}
+          position="absolute"
+          zIndex={2}
+          boxShadow="0 0 15px rgba(255, 255, 255, 0.8)"
+        />
+      </Box>
+
+      <Box
+        wordBreak="break-word"
+        alignItems="center"
+        justifyContent="center"
+        display="flex"
+        height={["40vh", "30vh"]}
+        bg="rgb(252, 223, 94)"
+        w="100%"
+        textAlign="center"
+      >
+        {text2}
+      </Box>
+    </Box>
+  );
+};
+
 
 
 const ProjectsOtherSide = () => {
