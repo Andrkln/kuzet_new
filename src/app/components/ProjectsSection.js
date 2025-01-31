@@ -5,8 +5,9 @@ import FullScreenSection from "./FullScreenSection";
 import { Box, Heading, Link } from "@chakra-ui/react";
 import Card from "./Card";
 import { Cube1 } from "./TheCubes"
-import ProjectsOtherSide from "./ProjectsOtherSide";
 import useIsMobile from "../hooks/isMobile";
+import ProjectsOtherSide from "./ProjectsOtherSide"; 
+
 const Map = 
   <Box
     className="flipBox2"

@@ -12,9 +12,9 @@ const OfferBlock = ({ text, image1, image2, image3 }) => {
                 w="100%"
                 p={3}
                 display="flex"
-                flexDirection={mobile ? 'column' : 'row'} // Adjust layout for mobile
+                flexDirection={mobile ? 'column' : 'row'}
                 justifyContent="center"
-                alignItems="center" // Ensures vertical centering
+                alignItems="center"
                 gap={4}
             >
                 <Box 
