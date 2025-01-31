@@ -6,17 +6,17 @@ import useismobile from "@/hooks/isMobile";
 
 let img1 = "/images/kkorgau3.jpg";
 
+let img2 = "/images/kkorgau24.jpg"
 
 
-import Image from "next/image"; // Import Next.js Image component
+
+import Image from "next/image";
 
 const Why_box = ({ text, img, text2 }) => {
   const ismobile = useismobile();
 
   return (
     <Box
-      borderStyle="solid"
-      borderColor="black"
       borderWidth={1}
       display="flex"
       flexDirection="column"
@@ -28,8 +28,8 @@ const Why_box = ({ text, img, text2 }) => {
       overflow="hidden"
       ml={[0, 8]}
       borderRadius="2.5%"
+      h={'40ch'}
     >
-      {/* Use <Image> instead of backgroundImage */}
       <Box
         position="relative"
         height={["40vh", "30vh"]}
@@ -37,11 +37,11 @@ const Why_box = ({ text, img, text2 }) => {
         overflow="hidden"
       >
         <Image
-          src={img} // ✅ Loads faster with Next.js optimization
+          src={img}
           alt={text}
           layout="fill"
           objectFit="cover"
-          priority // ✅ Preload for better performance
+          priority
         />
         <Box
           position="absolute"
@@ -62,6 +62,7 @@ const Why_box = ({ text, img, text2 }) => {
           color="white"
           fontWeight="bold"
           fontSize={["lg", "xl"]}
+          w={'90%'}
         >
           {text}
         </Box>
@@ -95,6 +96,8 @@ const Why_box = ({ text, img, text2 }) => {
         bg="rgb(252, 223, 94)"
         w="100%"
         textAlign="center"
+        w={'100%'}
+
       >
         {text2}
       </Box>
@@ -116,7 +119,8 @@ const ProjectsOtherSide = () => {
       justifyContent={'space-around'}
       width="100%"
       flexDirection={ismobile ? 'column' : 'raw'}
-      h={'80ch'}
+      h={['auto', '500']}
+
     >
         
           <Why_box 
@@ -132,7 +136,7 @@ const ProjectsOtherSide = () => {
           text2=" профессионализм бойцов и передовое оборудование" />
           <Why_box 
           text="Более 20 лет успешной работы в Алматы и Астане" 
-          img={img1} 
+          img={img2} 
           text2="десятки тысяч клиентов уже выбрали нас" />
     </Box>
   );
