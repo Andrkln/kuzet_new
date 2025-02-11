@@ -12,6 +12,7 @@ const ChatPlace = () => {
     const ismobile = useismobile();
     const pd = ismobile ? `3%` : `0.5%`;
     const mobile = useIsMobile();
+    const id = 0
 
     const chatBoxRef = useRef();
     const textareaRef = useRef();
@@ -40,6 +41,7 @@ const ChatPlace = () => {
         e.preventDefault();
         if (!message.trim()) return;
 
+        
         const userMessageId = `user-${Date.now()}`;
         setResponses(prevResponses => ({
             ...prevResponses,
@@ -66,10 +68,10 @@ const ChatPlace = () => {
                 style={{
                     width: mobile ? '35ch' : '45ch',
                     maxWidth: "sm",
-                    left: '10',
                     height: mobile ? '80vh' : '77vh',
                     padding: pd,
-                    position: 'fixed'
+                    position: 'fixed',
+                    left: mobile ? '1%' : '10',
                 }}
             >
                 {showChatWindow && (
@@ -78,7 +80,7 @@ const ChatPlace = () => {
                         borderRadius="15px"
                         p={4}
                         spacing={4}
-                        w="full"
+                        w={ mobile ? '80%' : '100%'}
                         borderWidth={3}
                         borderColor={'black'}
                     >
@@ -101,7 +103,7 @@ const ChatPlace = () => {
                                                 borderWidth="1px"
                                                 borderColor="black"
                                                 key={id}
-                                                w={mobile ? '30ch' : '40ch'}
+                                                w={'100%'}
                                                 mt={5}
                                                 minHeight={'20px'}
                                                 p={1}
@@ -126,8 +128,8 @@ const ChatPlace = () => {
                                     disabled={isLoading}
                                     color={'black'}
                                     borderColor="black"
-                                    w={mobile ? '30ch' : '40ch'}
-                                    sx={{
+                                    w={mobile ? '35ch' : '40ch'}
+                                    sx={{   
                                         '::placeholder': {
                                             color: 'rgb(95, 94, 94)',
                                         },
