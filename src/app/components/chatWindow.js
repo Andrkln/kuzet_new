@@ -71,7 +71,7 @@ const ChatPlace = () => {
                     height: mobile ? '80vh' : '77vh',
                     padding: pd,
                     position: 'fixed',
-                    left: mobile ? '1%' : '10',
+                    left: mobile ? '5%' : '10',
                 }}
             >
                 {showChatWindow && (
@@ -128,7 +128,7 @@ const ChatPlace = () => {
                                     disabled={isLoading}
                                     color={'black'}
                                     borderColor="black"
-                                    w={mobile ? '35ch' : '40ch'}
+                                    w={mobile ? '90%' : '40ch'}
                                     sx={{   
                                         '::placeholder': {
                                             color: 'rgb(95, 94, 94)',
