@@ -6,7 +6,11 @@ import Header from '@/components/Header';
 
 function HomePage() {
 
-  let img1 = "/images/kz.png";
+  let img1 = "/images/дом кут.JPG";
+
+  let img2 = '/images/дом страницам.JPG'
+
+  let img3 = '/images/дом страница.JPG'
 
   return (
     <Box
@@ -25,12 +29,17 @@ function HomePage() {
     </Text>
 
       <OfferBlock 
-      image1={img1}
+      image1={img2}
       image2={img1}
-      image3={img1}
+      image3={img3}
 
-      text={'lonvibhwegeiqvnrneiqrvnoieqrbbhoeqrjnevfqnjqefrjinveqrjnoeoqvjqevhbqevhojfhjofveqkjnfvkjnashobfdvahjoafvdjknfvhjhjbfvhjboefovhjbefvqhbjfvhjbfeqvojbh'}
-      
+      text={`
+        Среднее время прибытия 5-7 минут. 
+        Гарантируем вам спокойствие и безопасность. 
+        Мобильное приложение даст Вам полный контроль и оповещение, 
+        даже когда вы не дома Кроме того, фишки умного дома предоставят 
+        дополнительные измерения безопасности Оборудование: Ajax, Raptor и т.д. 
+        Установим оборудование в течение 30 минут`}
       />
       <ChatPlace />
     </Box>

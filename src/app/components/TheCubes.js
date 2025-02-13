@@ -4,13 +4,23 @@ import useismobile from "../hooks/isMobile";
 
 
 let img1 = "/images/kz.png";
-let img2 = "/images/Кузет.png";
+
+let imgB = "/images/kk.jpg";
+
+let img2 = "/images/home.png";
+
+let imgP = "/images/pcar.png";
+
+let imgBS = "/images/bs.png";
+
+let imgF = "/images/flat.png";
+
 let img3 = "/images/бизнес.webp";
 let img4 = "/images/Race.png";
 let img5 = "/images/Дом.webp";
 let img6 = "/images/postgres.png";
 let img7 = "/images/openai.png";
-let img8 = "/images/weather.webp";
+let img8 = "/images/weather.webp";  
 let img9 = "/images/pshed.webp";
 let img10 = "/images/datasimple.webp";
 let img11 = "/images/pgroup.webp";
@@ -43,41 +53,48 @@ const ismobile = useismobile();
   const z = ismobile ? `15ch` : `15ch`;
     const cubeFaces = [
       { color: `rgb(59, 171, 59)`, width: width, height: width, font: `16px`, transform: `rotateY(0deg) translateZ(${z})`, 
-      text: `Защитим ваше желище`,
-      TypeText:`Всего от 7000 тг в месяц`,
-      imageUrl: img1,
+      text: `Охрана квартир`,
+      TypeText:`Всего от 7000 тг в месяц...`,
+      imageUrl: imgF,
       textColour: `wheat`, 
-      speed: 45 },
+      speed: 45,
+      link: '/kvartity'
+    },
       { 
       color: `
   rgb(0, 110, 255)
       `, 
       width: width, height: width, 
       font: `16px`, transform: `rotateY(180deg) translateZ(${z})`,
-      text: `Охрана квартир и домов`, 
-      TypeText:`От 7000 тг в месяц...`,
-      imageUrl: img5,
+      text: `Охрана домов`, 
+      TypeText:`От 8000 тг в месяц...`,
+      imageUrl: img2,
       textColour: `wheat`, 
-      speed: 100 },
+      speed: 100,
+      link: '/home'
+    },
       { 
       color: `
   rgb(0, 68, 255)
       `, width: width, height: width, font: `16px`, transform: `rotateY(90deg) translateZ(${z})`, 
       text: `Охрана бизнеса`, 
       TypeText:`От 15 000 тг в месяц...`,
-      imageUrl: img3,
+      imageUrl: imgBS,
       textColour: `wheat`, 
-      speed: 90 },
+      speed: 90,
+      link: '/business'
+    },
       { 
 
       color: `rgb(81, 196, 148)`, 
       width: width, height: width, 
       font: `16px`, transform: `rotateY(-90deg) translateZ(${z})`, 
-      text: `Наш результат`, 
-      TypeText:`Болеее 90 % задержаний...`,
-      imageUrl: img2,
+      text: `Особые услуги`, 
+      TypeText:`Цена договорная...`,
+      imageUrl: imgP,
       textColour: `blue`, 
-      speed: 60
+      speed: 60,
+      link: '/special_service'
     },
       { color: `rgb(252, 226, 114)`, width: width, height: width, font: `16px`, transform: `rotateX(90deg) translateZ(${z})`, 
       speed: 100 

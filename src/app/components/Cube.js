@@ -22,7 +22,9 @@ const Styles = ({ color, width, height, font, transform }) => ({
   userSelect: 'none',
 });
 
-const CubeFace = ({ color, width, height, font, transform, text, TypeText, imageUrl, speed, textColour, main_text_color='white', link='/home' }) => (
+const CubeFace = ({ color, width, height, font, transform, text, TypeText, imageUrl, speed, textColour, 
+  main_text_color='white', 
+  link='/kvartity' }) => (
   <Box sx={Styles({ color, width, height, font, transform })}
   >
     <VStack>
@@ -35,9 +37,13 @@ const CubeFace = ({ color, width, height, font, transform, text, TypeText, image
           sizes="100vw"
         />
       )}
-      {text && <Text
+      {text && <Link
+      href={link}
+      >
+        <Text
       color={main_text_color}
-      >{text}</Text>}
+      >{text}</Text>
+      </Link>}
       {TypeText && (
         <Link
         href={link}

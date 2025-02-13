@@ -21,11 +21,11 @@ const OfferBlock = ({ text, image1, image2, image3 }) => {
                     p={1} 
                     display="flex" 
                     justifyContent="center" 
-                    alignItems="center" // Centers each image box
+                    alignItems="center"
                 >
                     <Image
                         height={mobile ? 80 : 120}
-                        width={mobile ? 200 : 250} // Responsive width
+                        width={mobile ? 200 : 250}
                         src={image1}
                         alt="Offer Image 1"
                         className="offerImg"

@@ -8,11 +8,15 @@ let img1 = "/images/kkorgau3.jpg";
 
 let img2 = "/images/kkorgau24.jpg"
 
+let img3 = '/images/k_standart_enhanced.jpg'
+
+let img4 = '/images/охрана кв куб.jpg'
+
 
 
 import Image from "next/image";
 
-const Why_box = ({ text, img, text2 }) => {
+const Why_box = ({ text, img, text2, dark = 'rgba(0, 0, 0, 0.5)' }) => {
   const ismobile = useismobile();
 
   return (
@@ -49,7 +53,7 @@ const Why_box = ({ text, img, text2 }) => {
           left={0}
           right={0}
           bottom={0}
-          backgroundColor="rgba(0, 0, 0, 0.5)"
+          backgroundColor={dark}
           zIndex={0}
         />
         <Box
@@ -96,7 +100,6 @@ const Why_box = ({ text, img, text2 }) => {
         bg="rgb(252, 223, 94)"
         w="100%"
         textAlign="center"
-        w={'100%'}
 
       >
         {text2}
@@ -122,13 +125,14 @@ const ProjectsOtherSide = () => {
       h={['auto', '500']}
 
     >
-        
           <Why_box 
           text="Нам доверяют даже конкуренты" 
-          img={img1} 
-          text2="20+ компаний выбрали нас для аутсорса охраны своих объектов" />
+          img={img3} 
+          text2="20+ компаний выбрали нас для аутсорса охраны своих объектов" 
+          dark="rgba(0, 0, 0, 0.25)"
+          />
           <Why_box text="Сомневаетесь в нас? Выйдите на улицу и убедитесь сами" 
-          img={img1} 
+          img={img4} 
           text2="тысячи наших стикеров по всему городу показатель качества" />
           <Why_box 
           text="Залог нашего успеха" 
