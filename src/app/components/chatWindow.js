@@ -72,7 +72,7 @@ const ChatPlace = () => {
                     height: mobile ? '80vh' : '77vh',
                     padding: pd,
                     position: 'fixed',
-                    left: mobile ? '5%' : '10',
+                    left: mobile ? '2%' : '10',
                 }}
             >
                 {showChatWindow && (
