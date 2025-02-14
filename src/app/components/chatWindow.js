@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { Box, Button, Textarea, VStack, Slide } from "@chakra-ui/react";
 import useismobile from "@/hooks/isMobile";
