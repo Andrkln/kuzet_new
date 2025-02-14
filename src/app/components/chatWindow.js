@@ -72,7 +72,7 @@ const ChatPlace = () => {
                     height: mobile ? '80vh' : '77vh',
                     padding: pd,
                     position: 'fixed',
-                    left: mobile ? '2%' : '10',
+                    left: mobile ? 'max' : '10',
                 }}
             >
                 {showChatWindow && (
@@ -81,7 +81,7 @@ const ChatPlace = () => {
                         borderRadius="15px"
                         p={4}
                         spacing={4}
-                        w={ mobile ? '80%' : '100%'}
+                        w={ mobile ? '32ch' : '100%'}
                         borderWidth={3}
                         borderColor={'black'}
                     >
