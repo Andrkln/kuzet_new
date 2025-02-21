@@ -66,13 +66,14 @@ const ChatPlace = () => {
             <Slide
                 direction="bottom"
                 in={showChatWindow}
+                position={'fixed'}
                 style={{
                     width: mobile ? '35ch' : '45ch',
                     maxWidth: "sm",
                     height: mobile ? '80vh' : '77vh',
                     padding: pd,
                     position: 'fixed',
-                    left: mobile ? 'max' : '10',
+                    left: mobile ? '20' : '10',
                 }}
             >
                 {showChatWindow && (
@@ -81,7 +82,7 @@ const ChatPlace = () => {
                         borderRadius="15px"
                         p={4}
                         spacing={4}
-                        w={ mobile ? '32ch' : '100%'}
+                        w={ mobile ? '35ch' : '100%'}
                         borderWidth={3}
                         borderColor={'black'}
                     >
