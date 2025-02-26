@@ -72,7 +72,6 @@ const ChatPlace = () => {
                     maxWidth: "sm",
                     height: mobile ? '80vh' : '77vh',
                     padding: pd,
-                    left: mobile ? '5' : '10000',
                 }}
             >
                 {showChatWindow && (
@@ -84,7 +83,6 @@ const ChatPlace = () => {
                         w={ mobile ? '35ch' : '100%'}
                         borderWidth={3}
                         borderColor={'black'}
-                        mr={'10ch'}
                     >
                         <form onSubmit={handleSendMessage} style={{ width: "small" }}>
                             <VStack spacing={5}>
