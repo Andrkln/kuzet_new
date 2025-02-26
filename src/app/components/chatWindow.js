@@ -72,6 +72,7 @@ const ChatPlace = () => {
                     maxWidth: "sm",
                     height: mobile ? '80vh' : '77vh',
                     padding: pd,
+                    left: mobile ? '0' : '20',
                 }}
             >
                 {showChatWindow && (
