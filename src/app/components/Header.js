@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box, HStack, Link } from "@chakra-ui/react";
@@ -7,81 +7,81 @@ import { faTelegram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import useIsMobile from "../hooks/isMobile";
 
-
 const socials = [
   {
     icon: faPhone,
     url: "tel:+77719333330",
-    colour: 'grey'
+    colour: "grey",
   },
   {
     icon: faWhatsapp,
     url: "https://api.whatsapp.com/send?phone=77717428622",
-    colour: 'rgb(4,170, 109)'
+    colour: "rgb(4,170,109)",
   },
   {
     icon: faTelegram,
     url: "https://t.me/KuzetKorgau_bot/",
-    colour: 'rgb(68, 141, 252)'
+    colour: "rgb(68,141,252)",
   },
 ];
 
 const Header = () => {
-  const isMobile = typeof window !== 'undefined' && useIsMobile();
+  const isMobile = useIsMobile();
 
   return (
     <Box
-      height="6ch"
       position="fixed"
       top={0}
       left={0}
       right={0}
       transform="translateY(0)"
-      transition="transform .3s ease-in-out"
+      transition="transform 0.3s ease-in-out"
       backgroundColor="#18181b"
       zIndex="10"
     >
-      <Box color="white" maxWidth="100%" px={-3} py={3}
-        >
-        <HStack justifyContent="space-between" 
-        >
+      <Box color="white" maxWidth="100%" px={3} py={3}>
+        <HStack justifyContent="space-between">
+          {/* Left Side - Address Link */}
           <nav>
-          <HStack spacing={25}>
+            <HStack spacing={6}>
               <Link
-                  textDecoration={'none'}
-                  fontSize={'2ch'}
-                  ml={8}
-                  href="https://maps.app.goo.gl/VSWCeybcsamaiAxq9"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    textDecoration: 'none',
-                  }}
-                  > 
-                  <LineEffect
-                    text={'Каирбекова 70'}
-                  />
+                textDecoration="none"
+                fontSize="2ch"
+                ml={8}
+                href="https://maps.app.goo.gl/VSWCeybcsamaiAxq9"
+                target="_blank"
+                rel="noopener noreferrer"
+                _hover={{
+                  textDecoration: "none",
+                }}
+              >
+                <LineEffect text="Каирбекова 70" />
               </Link>
             </HStack>
-
           </nav>
-        <nav>
-            <HStack 
-            spacing={15}
-            mr={10}
-            >
+
+          {/* Right Side - Social Links */}
+          <nav>
+            <HStack spacing={isMobile ? 4 : 6} mr={10}>
               {socials.map((social) => (
-               <Link key={social.url} href={social.url} 
-               isExternal
-                    sx={{
-                      color: 'white',
-                      '&:hover': {
-                        color: social.colour,
-                      },
-                    }}>
-                  <FontAwesomeIcon icon={social.icon} size={useIsMobile() ? 'xl' : '2xl'}/>
-              </Link>
-            ))}
+                <Link
+                  key={social.url}
+                  href={social.url}
+                  isExternal
+                  sx={{
+                    color: "white",
+                    "&:hover": {
+                      color: social.colour,
+                    },
+                  }}
+                  aria-label={`Link to ${social.url}`}
+                >
+                  <FontAwesomeIcon
+                    icon={social.icon}
+                    size={isMobile ? "lg" : "2x"}
+                  />
+                </Link>
+              ))}
             </HStack>
           </nav>
         </HStack>

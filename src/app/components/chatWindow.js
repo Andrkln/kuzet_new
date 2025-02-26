@@ -1,3 +1,4 @@
+
 'use client'
 import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { Box, Button, Textarea, VStack, Slide } from "@chakra-ui/react";
@@ -56,11 +57,11 @@ const ChatPlace = () => {
     return (
         <VStack
             spacing={5}
-            position="fixed"
             bottom="5"
             right={0}
             p={5}
             zIndex={100}
+            position={'fixed'}
             suppressHydrationWarning
         >
             <Slide
@@ -72,8 +73,7 @@ const ChatPlace = () => {
                     maxWidth: "sm",
                     height: mobile ? '80vh' : '77vh',
                     padding: pd,
-                    position: 'fixed',
-                    left: mobile ? '20' : '10',
+                    left: mobile ? '5' : '10000',
                 }}
             >
                 {showChatWindow && (
@@ -85,6 +85,7 @@ const ChatPlace = () => {
                         w={ mobile ? '35ch' : '100%'}
                         borderWidth={3}
                         borderColor={'black'}
+                        mr={'10ch'}
                     >
                         <form onSubmit={handleSendMessage} style={{ width: "small" }}>
                             <VStack spacing={5}>
