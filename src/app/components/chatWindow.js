@@ -67,7 +67,6 @@ const ChatPlace = () => {
             <Slide
                 direction="bottom"
                 in={showChatWindow}
-                position={'fixed'}
                 style={{
                     width: mobile ? '35ch' : '45ch',
                     maxWidth: "sm",
