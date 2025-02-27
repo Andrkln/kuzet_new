@@ -5,7 +5,6 @@ import { Box, HStack, Link } from "@chakra-ui/react";
 import LineEffect from "../hooks/lineEffect";
 import { faTelegram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
-import useIsMobile from "../hooks/isMobile";
 
 const socials = [
   {
@@ -26,8 +25,6 @@ const socials = [
 ];
 
 const Header = () => {
-  const isMobile = useIsMobile();
-
   return (
     <Box
       position="fixed"
@@ -41,7 +38,6 @@ const Header = () => {
     >
       <Box color="white" maxWidth="100%" px={3} py={3}>
         <HStack justifyContent="space-between">
-          {/* Left Side - Address Link */}
           <nav>
             <HStack spacing={6}>
               <Link
@@ -62,7 +58,7 @@ const Header = () => {
 
           {/* Right Side - Social Links */}
           <nav>
-            <HStack spacing={isMobile ? 4 : 6} mr={10}>
+            <HStack spacing={[4, 6]} mr={10}>
               {socials.map((social) => (
                 <Link
                   key={social.url}
@@ -78,7 +74,7 @@ const Header = () => {
                 >
                   <FontAwesomeIcon
                     icon={social.icon}
-                    size={isMobile ? "lg" : "2x"}
+                    size={'2x'}
                   />
                 </Link>
               ))}

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(() => {
-    // Provide a default value based on an environment check
+ 
     return typeof window !== 'undefined' ? window.matchMedia("(max-width: 900px)").matches : false;
   });
 

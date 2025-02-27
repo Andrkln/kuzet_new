@@ -1,6 +1,7 @@
 import { Aleo } from "next/font/google";
 import "./globals.css";
 import { ChakraProvider } from "@chakra-ui/react";
+import ChatPlace from '@/components/chatWindow';
 
 
 const aleo = Aleo({
@@ -35,7 +36,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={aleo.className}>
       <body suppressHydrationWarning>
-        <ChakraProvider>{children}</ChakraProvider>
+        <ChakraProvider>
+        <ChatPlace />
+          {children}
+          </ChakraProvider>
       </body>
     </html>
   );

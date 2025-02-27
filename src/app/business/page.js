@@ -36,7 +36,6 @@ function HomePage() {
 Оборудование: Ajax, Raptor и т.д. 
 Установим оборудование в течение 30 минут.`}
       />
-      <ChatPlace />
     </Box>
   );
 }

@@ -1,65 +1,69 @@
-'use client'
+'use client';
 import { Box, Text } from '@chakra-ui/react';
 import Image from 'next/image';
-import useIsMobile from '@/hooks/isMobile';
 
 const OfferBlock = ({ text, image1, image2, image3 }) => {
-    const mobile = useIsMobile();
-
     return (
         <Box pt={15}>
             <Box
                 w="100%"
                 p={3}
                 display="flex"
-                flexDirection={mobile ? 'column' : 'row'}
+                flexDirection={["column", "row"]} // Mobile -> Column, Desktop -> Row
                 justifyContent="center"
                 alignItems="center"
                 gap={4}
             >
-                <Box 
-                    p={1} 
-                    display="flex" 
-                    justifyContent="center" 
-                    alignItems="center"
-                >
+                {/* Small Image 1 */}
+                <Box p={1} display="flex" justifyContent="center" alignItems="center">
                     <Image
-                        height={mobile ? 80 : 120}
-                        width={mobile ? 200 : 250}
                         src={image1}
                         alt="Offer Image 1"
-                        className="offerImg"
+                        width={250}
+                        height={120}
+                        sizes="(max-width: 768px) 200px, 250px"
+                        style={{
+                            width: "100%",
+                            maxWidth: "250px",
+                            height: "auto",
+                        }}
                     />
                 </Box>
-                <Box 
-                    p={1} 
-                    display="flex" 
-                    justifyContent="center" 
-                    alignItems="center"
-                >
+
+                {/* Bigger Center Image */}
+                <Box p={1} display="flex" justifyContent="center" alignItems="center">
                     <Image
-                        height={mobile ? 80 : 120}
-                        width={mobile ? 240 : 300}
                         src={image2}
                         alt="Offer Image 2"
-                        className="offerImg"
+                        width={300}
+                        height={150}
+                        sizes="(max-width: 768px) 240px, 300px"
+                        style={{
+                            width: "100%",
+                            maxWidth: "300px",
+                            height: "auto",
+                        }}
                     />
                 </Box>
-                <Box 
-                    p={1} 
-                    display="flex" 
-                    justifyContent="center" 
-                    alignItems="center"
-                >
+
+                {/* Small Image 3 */}
+                <Box p={1} display="flex" justifyContent="center" alignItems="center">
                     <Image
-                        height={mobile ? 80 : 120}
-                        width={mobile ? 200 : 250}
                         src={image3}
                         alt="Offer Image 3"
-                        className="offerImg"
+                        width={250}
+                        height={120}
+                        sizes="(max-width: 768px) 200px, 250px"
+                        style={{
+                            width: "100%",
+                            maxWidth: "250px",
+                            height: "auto",
+                        }}
                     />
                 </Box>
             </Box>
+
+            {/* Text Section */}
             <Box pb={5}>
                 <Text
                     w="100%"
@@ -67,8 +71,7 @@ const OfferBlock = ({ text, image1, image2, image3 }) => {
                     justifyContent="center"
                     textAlign="center"
                     wordBreak="break-word"
-                    pl={2}
-                    pr={2}
+                    px={2}
                 >
                     {text}
                 </Text>

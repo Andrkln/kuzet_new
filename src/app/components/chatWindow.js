@@ -62,7 +62,9 @@ const ChatPlace = () => {
             p={5}
             zIndex={100}
             position={'fixed'}
-            suppressHydrationWarning
+            display={'flex'}
+            align={'center'}
+            justify={'center'}
         >
             <Slide
                 direction="bottom"
