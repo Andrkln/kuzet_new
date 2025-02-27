@@ -1,7 +1,6 @@
 'use client'
 import { Text, Box } from '@chakra-ui/react';
 import OfferBlock from '@/components/photoOffers';
-import ChatPlace from '@/components/chatWindow';
 import Header from '@/components/Header';
 
 function HomePage() {
