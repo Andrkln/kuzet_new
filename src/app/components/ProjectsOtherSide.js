@@ -21,7 +21,6 @@ const Why_box = ({ text, img, text2, dark = 'rgba(0, 0, 0, 0.5)' }) => {
 
   return (
     <Box
-      borderWidth={1}
       display="flex"
       flexDirection="column"
       justifyContent="flex-end"
@@ -39,6 +38,8 @@ const Why_box = ({ text, img, text2, dark = 'rgba(0, 0, 0, 0.5)' }) => {
         height={["40vh", "30vh"]}
         width="100%"
         overflow="hidden"
+        borderTopLeftRadius={"2.5%"}
+        borderTopRightRadius={ "2.5%"}
       >
         <Image
           src={img}

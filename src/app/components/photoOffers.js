@@ -9,16 +9,15 @@ const OfferBlock = ({ text, image1, image2, image3 }) => {
                 w="100%"
                 p={3}
                 display="flex"
-                flexDirection={["column", "row"]} // Mobile -> Column, Desktop -> Row
+                flexDirection={["column", "row"]}
                 justifyContent="center"
                 alignItems="center"
                 gap={4}
             >
-                {/* Small Image 1 */}
                 <Box p={1} display="flex" justifyContent="center" alignItems="center">
                     <Image
                         src={image1}
-                        alt="Offer Image 1"
+                        alt='security alamty image'
                         width={250}
                         height={120}
                         sizes="(max-width: 768px) 200px, 250px"
@@ -30,11 +29,10 @@ const OfferBlock = ({ text, image1, image2, image3 }) => {
                     />
                 </Box>
 
-                {/* Bigger Center Image */}
                 <Box p={1} display="flex" justifyContent="center" alignItems="center">
                     <Image
                         src={image2}
-                        alt="Offer Image 2"
+                        alt='security alamty image'
                         width={300}
                         height={150}
                         sizes="(max-width: 768px) 240px, 300px"
@@ -46,13 +44,12 @@ const OfferBlock = ({ text, image1, image2, image3 }) => {
                     />
                 </Box>
 
-                {/* Small Image 3 */}
                 <Box p={1} display="flex" justifyContent="center" alignItems="center">
                     <Image
                         src={image3}
-                        alt="Offer Image 3"
                         width={250}
                         height={120}
+                        alt='security alamty image'
                         sizes="(max-width: 768px) 200px, 250px"
                         style={{
                             width: "100%",
@@ -63,7 +60,6 @@ const OfferBlock = ({ text, image1, image2, image3 }) => {
                 </Box>
             </Box>
 
-            {/* Text Section */}
             <Box pb={5}>
                 <Text
                     w="100%"

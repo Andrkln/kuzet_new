@@ -5,7 +5,11 @@ import Header from '@/components/Header';
 
 function HomePage() {
 
-  let img1 = "/images/kz.png";
+  let img1 = "/images/k_bs3.jpg";
+
+  let img2 = "/images/k_business.jpg";
+
+  let img3 = "/images/k_bs2.jpg";
 
   return (
     <Box
@@ -24,8 +28,8 @@ function HomePage() {
     </Text>
 
       <OfferBlock 
-      image1={img1}
-      image2={img1}
+      image1={img2}
+      image2={img3}
       image3={img1}
 
       text={`

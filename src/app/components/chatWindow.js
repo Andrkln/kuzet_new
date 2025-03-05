@@ -3,15 +3,19 @@ import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { Box, Button, Textarea, VStack, Slide } from "@chakra-ui/react";
 import useIsMobile from "@/hooks/isMobile";
 import useChating from '@/hooks/useChat';
+import { usePathname } from "next/navigation"; 
 
 const ChatPlace = () => {
+
+    const pathname = usePathname();
+
     const { isLoading, responses: responsesFromHook, error, chat_id, submit } = useChating();
     const [message, setMessage] = useState("");
     const [responses, setResponses] = useState({
-        bot_0: 'Привет! Я — Эрик, ваш персональный помощник из компании «Кузет Стандарт». Я помогу с любыми вопросами, связанными с нашей охраной — от проверки доступности услуг по вашему адресу до подбора оборудования. Если вы захотите стать нашим клиентом, я также смогу помочь с оформлением договора.'
+        bot_0: 'Привет! Я — Эрик, ваш персональный помощник из компании «Кузет Стандарт». Я помогу с любыми вопросами, связанными с нашей охраной — от проверки доступности услуг по вашему адресу до подбора оборудования. Здесь можно быстро задать несколько вопросов и получить ответы, но если хотите обсудить детали или оформить заявку, лучше перейти в наш Telegram (AI bot) или WhatsApp'
     });
     const [showChatWindow, setShowChatWindow] = useState(false);
-    const [messageId, setMessageId] = useState(1); // Message counter
+    const [messageId, setMessageId] = useState(1);
     const isMobile = useIsMobile();
     const pd = isMobile ? `3%` : `0.5%`;
 
@@ -19,6 +23,10 @@ const ChatPlace = () => {
     const textareaRef = useRef();
 
     const toggleChatWindow = () => setShowChatWindow(!showChatWindow);
+
+    useEffect(() => {
+        setShowChatWindow(false);
+    }, [pathname]);
 
     useEffect(() => {
         if (responsesFromHook && Object.keys(responsesFromHook).length > 0) {
