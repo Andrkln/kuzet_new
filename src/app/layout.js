@@ -12,25 +12,26 @@ const aleo = Aleo({
 });
 
 export const metadata = {
-  metadataBase: new URL("http://localhost:3000/"),
-  title: "Kuzet Korgau - Security Solutions",
-  description: "Providing the best security services for homes and businesses.",
+  metadataBase: new URL("https://kuzet-standart.kz/"),
+  title: "Кузет Стандарт - Стандарт безопасности",
+  description: "Профессиональные услуги охраны для домов, бизнеса и объектов. Быстрая реакция, круглосуточный мониторинг и лучшие сотрудники.",
   openGraph: {
-    title: "Kuzet Korgau",
-    description: "Your trusted security service provider.",
-    url: "https://yourdomain.com",
-    siteName: "Kuzet Korgau",
+    title: "Кузет Стандарт - Охрана вашего имущества",
+    description: "Мы обеспечиваем защиту вашего дома, бизнеса и имущества с самыми быстрыми группами реагирования и профессиональной охраной.",
+    url: "https://kuzet-standart.kz",
+    siteName: "Кузет Стандарт",
     images: [
       {
-        url: "/images/my_photo.jpg",
+        url: "/images/kz.png",
         width: 1200,
         height: 630,
-        alt: "Kuzet Korgau Security Services",
+        alt: "Kuzet Standart Security Services",
       },
     ],
     type: "website",
   },
 };
+
 
 export default function RootLayout({ children }) {
   return (
