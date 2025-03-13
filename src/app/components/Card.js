@@ -14,7 +14,7 @@ const Card = ({ children }) => {
         <Box
         display={'flex'}
         justifyItems={'flex-end'}
-        w={['30ch', '45ch']}
+        w={['85vw', '45ch']}
         h={['50ch', '45chch']}
               sx={{
                 justifyContent: 'space-around',

@@ -1,4 +1,4 @@
-'use client'; // Ensure this runs on the client
+'use client';
 
 import { ChakraProvider, theme } from "@chakra-ui/react";
 

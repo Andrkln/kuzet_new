@@ -50,9 +50,11 @@ let img29 = "/images/typeeffect.webp";
 export const Cube1 = () => {
 const ismobile = useismobile();
   const width = ismobile ? `30ch` : `30ch`;
-  const z = ismobile ? `15ch` : `15ch`;
+  const z = ismobile ? `12.5ch` : `15ch`;
     const cubeFaces = [
-      { color: `rgb(59, 171, 59)`, width: width, height: width, font: `16px`, transform: `rotateY(0deg) translateZ(${z})`, 
+      { color: `rgb(59, 171, 59)`, width: ['25ch','30ch'], height: ['33ch','30ch'], 
+      font: `16px`, 
+      transform: `rotateY(0deg) translateZ(${z})`, 
       text: `Охрана квартир`,
       TypeText:`Всего от 7000 тг в месяц...`,
       imageUrl: imgF,
@@ -64,7 +66,7 @@ const ismobile = useismobile();
       color: `
   rgb(0, 110, 255)
       `, 
-      width: width, height: width, 
+      width: ['25ch','30ch'], height: ['33ch','30ch'], 
       font: `16px`, transform: `rotateY(180deg) translateZ(${z})`,
       text: `Охрана домов`, 
       TypeText:`От 8000 тг в месяц...`,
@@ -76,7 +78,7 @@ const ismobile = useismobile();
       { 
       color: `
   rgb(0, 68, 255)
-      `, width: width, height: width, font: `16px`, transform: `rotateY(90deg) translateZ(${z})`, 
+      `, width: ['25ch','30ch'], height: ['33ch','30ch'], font: `16px`, transform: `rotateY(90deg) translateZ(${z})`, 
       text: `Охрана бизнеса`, 
       TypeText:`От 15 000 тг в месяц...`,
       imageUrl: imgBS,
@@ -87,7 +89,7 @@ const ismobile = useismobile();
       { 
 
       color: `rgb(81, 196, 148)`, 
-      width: width, height: width, 
+      width: ['25ch','30ch'], height: ['33ch','30ch'], 
       font: `16px`, transform: `rotateY(-90deg) translateZ(${z})`, 
       text: `Особые услуги`, 
       TypeText:`Цена договорная...`,
@@ -96,11 +98,15 @@ const ismobile = useismobile();
       speed: 60,
       link: '/special_service'
     },
-      { color: `rgb(252, 226, 114)`, width: width, height: width, font: `16px`, transform: `rotateX(90deg) translateZ(${z})`, 
+      { color: `rgb(252, 226, 114)`, 
+      width: ['25ch','30ch'], 
+      height: ['25ch','30ch'], font: `16px`,
+      transform: `rotateX(90deg) 
+      translateZ(${'12.5ch'})`, 
       speed: 100 
     
     },
-      { color: `orange`, width: width, height: width, font: `16px`, transform: `rotateX(-90deg) translateZ(${z})`,},
+      { color: `orange`, width: ['20ch','30ch'], height: ['20ch','30ch'], font: `16px`, transform: `rotateX(-90deg) translateZ(${z})`,},
     ];
   
     return <Cube faces={cubeFaces} />;
