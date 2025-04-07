@@ -15,7 +15,7 @@ export async function POST(request) {
     };
 
 
-    const response = await fetch(test, {
+    const response = await fetch(product, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

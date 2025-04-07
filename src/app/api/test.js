@@ -1,9 +1,27 @@
-let a = '{"message": " with", "id": "chatcmpl-9SLTu6BKEsYuO8C65PRz2EC95EMzI"} {"message": " him", "id": "chatcmpl-9SLTu6BKEsYuO8C65PRz2EC95EMzI"}'
+const fetch = require('node-fetch');
 
-let b = a.split('{').slice(1);
+async function testPOST() {
+  const testData = {
+    message: "Hello, this is a test message",
+    userId: 12345
+  };
 
-if (b.length >= 2) {
-    for (i in b) {
-        console.log('{' + b[i])
-    }
+  try {
+    const response = await fetch('https://kuezetbotlogic-production.up.railway.app/api/chat/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(testData),
+    });
+
+    // Instead of using getReader(), read the response as text or JSON
+    const result = await response.text(); // Use `.json()` if expecting JSON
+
+    console.log("Response from API:", result);
+  } catch (error) {
+    console.error("Test request failed:", error);
+  }
 }
+
+testPOST();
