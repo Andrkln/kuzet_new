@@ -5,6 +5,7 @@ import rest from "@/hooks/key_store"; // Import the `rest` variable from the key
 
  let product = 'https://kuezetbotlogic-production.up.railway.app/api/chat/'
 
+ 
 
 export async function POST(request) {
   try {
