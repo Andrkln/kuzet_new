@@ -3,7 +3,7 @@ import rest from "@/hooks/key_store"; // Import the `rest` variable from the key
 
  let test =  'http://127.0.0.1:8000/api/chat/'  
 
- let product = 'https://kuzet-51cbf6d22e1b.herokuapp.com/api/chat/'
+ let product = 'https://kuezetbotlogic-production.up.railway.app/api/chat/'
 
 
 export async function POST(request) {
@@ -13,7 +13,6 @@ export async function POST(request) {
       ...chatData,
       rest,
     };
-
 
     const response = await fetch(product, {
       method: 'POST',
