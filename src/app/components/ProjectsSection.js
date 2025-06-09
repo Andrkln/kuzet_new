@@ -1,27 +1,15 @@
 'use client'
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FullScreenSection from "./FullScreenSection";
 import { Box, Heading, Link } from "@chakra-ui/react";
 import Card from "./Card";
 import { Cube1 } from "./TheCubes"
+import ServiceCards from "./ServiceCards"
 import useIsMobile from "../hooks/isMobile";
 import ProjectsOtherSide from "./ProjectsOtherSide"; 
 
-const Map = 
-  <Box
-    className="flipBox2"
-    w={'100%'}
-    bgColor={'white'}
-    backgroundColor={'white'}
-    display="flex"
-    justifyItems={'center'}
-    alignItems={'center'}
-    >
-        <Card> 
-          <Cube1 />
-        </Card>
-  </Box>
+
 
 
 const ProjectsSection = () => {
@@ -29,33 +17,59 @@ const ProjectsSection = () => {
   const [colors, setColors] = useState({ project: 'black', qualities: 'grey' });
   const [turn, setTurn] = useState('0')
   const [widthOF, SetwidthOF] = useState('0')
-  const  [Content, setContent] = useState(Map)
   const isMobile = useIsMobile();
+  const Map = (
+    <Box
+      className="flipBox2"
+      w={'100%'}
+      bgColor={'white'}
+      backgroundColor={'white'}
+      display="flex"
+      justifyItems={'center'}
+      alignItems={'center'}
+    >
+      {isMobile ? (
+        <ServiceCards />
+      ) : (
+        <Card>
+          <Cube1 />
+        </Card>
+      )}
+    </Box>
+  );
+
+  const [Content, setContent] = useState(Map)
   const button_postion = useIsMobile() ? `flex-end` : `center`;
   const word_length = useIsMobile() ? 250 : 230;
   const [phone_show, setPhone] = useState('none')
 
+  useEffect(() => {
+    setContent(Map);
+  }, [isMobile]);
+
   function handleColorChange() {
-    const startTurn = parseInt(turn, 10);
-    const endTurn = startTurn === 0 ? 180 : 0;
-    const increment = startTurn < endTurn ? 5 : -5;
-  
-    function updateTurn(currentTurn) {
-      if ((increment > 0 && currentTurn < endTurn) || (increment < 0 && currentTurn > endTurn)) {
-        const nextTurn = currentTurn + increment;
-        setTurn(nextTurn.toString());
+    if (isMobile) {
+      setContent(Content === Map ? <ProjectsOtherSide /> : Map);
+    } else {
+      const startTurn = parseInt(turn, 10);
+      const endTurn = startTurn === 0 ? 180 : 0;
+      const increment = startTurn < endTurn ? 5 : -5;
 
-        if (Math.abs(nextTurn) === 90) { 
-          setContent(Content === Map ? <ProjectsOtherSide /> : Map);
-          
+      function updateTurn(currentTurn) {
+        if ((increment > 0 && currentTurn < endTurn) || (increment < 0 && currentTurn > endTurn)) {
+          const nextTurn = currentTurn + increment;
+          setTurn(nextTurn.toString());
 
+          if (Math.abs(nextTurn) === 90) {
+            setContent(Content === Map ? <ProjectsOtherSide /> : Map);
+          }
+
+          setTimeout(() => updateTurn(nextTurn), 10);
         }
-  
-        setTimeout(() => updateTurn(nextTurn), 10); 
       }
+
+      updateTurn(startTurn);
     }
-  
-    updateTurn(startTurn);
     
     setColors({
       project: colors.project === 'black' ? 'grey' : 'black',
