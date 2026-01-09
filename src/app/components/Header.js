@@ -51,7 +51,7 @@ const Header = () => {
                   textDecoration: "none",
                 }}
               >
-                <LineEffect text="Каирбекова 70" />
+                <LineEffect text="Каирбекова 68" />
               </Link>
             </HStack>
           </nav>

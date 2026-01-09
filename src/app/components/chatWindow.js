@@ -134,7 +134,7 @@ const ChatPlace = () => {
                                             minHeight={'20px'}
                                             p={1}
                                         >
-                                            {response}
+                                            <span dangerouslySetInnerHTML={{ __html: response }} />
                                         </Box>
                                     ))}
                                 </Box>
