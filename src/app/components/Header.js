@@ -19,7 +19,7 @@ const socials = [
   },
   {
     icon: faTelegram,
-    url: "https://t.me/KuzetKorgau_bot/",
+    url: "https://t.me/AlmatyKuzetBot/",
     colour: "rgb(68,141,252)",
   },
 ];

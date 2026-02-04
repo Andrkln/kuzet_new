@@ -52,51 +52,56 @@ const ismobile = useismobile();
   const width = ismobile ? `30ch` : `30ch`;
   const z = ismobile ? `15ch` : `15ch`;
     const cubeFaces = [
-      { color: `rgb(59, 171, 59)`, width: width, height: width, font: `16px`, transform: `rotateY(0deg) translateZ(${z})`, 
+      { color: `rgb(252, 226, 114)`, width: width, height: width, font: `16px`, transform: `rotateY(0deg) translateZ(${z})`, 
       text: `Охрана квартир`,
       TypeText:`Всего от 7000 тг в месяц...`,
       imageUrl: imgF,
-      textColour: `wheat`, 
+      textColour: `black`,
+      main_text_color: 'black',
       speed: 45,
       link: '/kvartity'
+
     },
       { 
       color: `
-  rgb(0, 110, 255)
+  rgb(252, 226, 114)
       `, 
       width: width, height: width, 
       font: `16px`, transform: `rotateY(180deg) translateZ(${z})`,
       text: `Охрана домов`, 
       TypeText:`От 8000 тг в месяц...`,
       imageUrl: img2,
-      textColour: `wheat`, 
+      main_text_color: 'black',
+      textColour: `black`, 
       speed: 100,
       link: '/home'
     },
       { 
       color: `
-  rgb(0, 68, 255)
+    rgb(0, 110, 255)
       `, width: width, height: width, font: `16px`, transform: `rotateY(90deg) translateZ(${z})`, 
       text: `Охрана бизнеса`, 
       TypeText:`От 15 000 тг в месяц...`,
       imageUrl: imgBS,
-      textColour: `wheat`, 
+      main_text_color: 'black',
+      textColour: `black`, 
       speed: 90,
       link: '/business'
     },
       { 
 
-      color: `rgb(81, 196, 148)`, 
+      color: `rgb(0, 110, 255)`, 
       width: width, height: width, 
       font: `16px`, transform: `rotateY(-90deg) translateZ(${z})`, 
       text: `Особые услуги`, 
       TypeText:`Цена договорная...`,
       imageUrl: imgP,
-      textColour: `blue`, 
+      main_text_color: 'black',
+      textColour: `black`, 
       speed: 60,
       link: '/special_service'
     },
-      { color: `rgb(252, 226, 114)`, width: width, height: width, font: `16px`, transform: `rotateX(90deg) translateZ(${z})`, 
+      { color: `black`, width: width, height: width, font: `16px`, transform: `rotateX(90deg) translateZ(${z})`, 
       speed: 100 
     
     },

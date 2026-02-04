@@ -25,12 +25,11 @@ const LandingSection = () => {
       }}
       >
         <b>
-        Кузет Стандарт
+        Кузет Коргау
           </b>
       </Heading>
       <Self
         title='Мир вашему дому !'
-        description='Получить скидку'
         imageSrc={imgSrc}
       />
     </FullScreenSection>

@@ -31,8 +31,6 @@ const Card = ({ children }) => {
                   top: "-50%",
                   width: "200%",
                   height: "200%",
-                  background: "linear-gradient(45deg, #cedcf7, #1867fa, rgb(252, 223, 94), #d8e3f8)",
-                  backgroundSize: "200% 200%",
                 },
                 ':hover:before': {
                   animationPlayState: "running",
