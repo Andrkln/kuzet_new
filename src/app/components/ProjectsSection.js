@@ -8,17 +8,7 @@ import useIsMobile from "../hooks/isMobile";
 import ProjectsOtherSide from "./ProjectsOtherSide"; 
 
 const Map = 
-  <Box
-    className="flipBox2"
-    w={'100%'}
-    bgColor={'white'}
-    backgroundColor={'white'}
-    display="flex"
-    justifyItems={'center'}
-    alignItems={'center'}
-    >        
-    <Cube1 />
-  </Box>
+  <Cube1 />
 
 
 const ProjectsSection = () => {

@@ -83,8 +83,8 @@ const ismobile = useismobile();
       text: `Охрана бизнеса`, 
       TypeText:`От 15 000 тг в месяц...`,
       imageUrl: imgBS,
-      main_text_color: 'black',
-      textColour: `black`, 
+      main_text_color: 'white',
+      textColour: `white`, 
       speed: 90,
       link: '/business'
     },
@@ -96,8 +96,8 @@ const ismobile = useismobile();
       text: `Особые услуги`, 
       TypeText:`Цена договорная...`,
       imageUrl: imgP,
-      main_text_color: 'black',
-      textColour: `black`, 
+      main_text_color: 'white',
+      textColour: `white`, 
       speed: 60,
       link: '/special_service'
     },

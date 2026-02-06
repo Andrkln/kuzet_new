@@ -88,7 +88,7 @@ const selfCss = css`
     width: 90%;
     height: 90%;
     z-index: 2;
-    background-color: blue;
+    background-color: black;
     animation: ${circleAnimation} 3.1s ease-in-out infinite;
     border-radius: 50%;
     display: flex;

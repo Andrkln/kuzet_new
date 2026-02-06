@@ -13,7 +13,6 @@ let img3 = '/images/k_standart_enhanced.jpg'
 let img4 = '/images/охрана кв куб.jpg'
 
 
-
 import Image from "next/image";
 
 const Why_box = ({ text, img, text2, dark = 'rgba(0, 0, 0, 0.5)' }) => {

@@ -19,10 +19,8 @@ const LandingSection = () => {
      className="place"
     ></div>
       <Heading as='h1' size='4xl'
-      color={'white'}
-      sx={{
-        textShadow: "2px 2px 0 black, -2px 2px 0 black, 2px -2px 0 black, -2px -2px 0 black"
-      }}
+      fontWeight='hairline'
+      color={'black'}
       >
         <b>
         Кузет Коргау
