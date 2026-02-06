@@ -1,24 +1,15 @@
 'use client'
 import React from "react";
-import { Box, Heading  } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import useismobile from "@/hooks/isMobile";
-
-
-let img1 = "/images/kkorgau3.jpg";
-
-let img2 = "/images/kkorgau24.jpg"
-
-let img3 = '/images/k_standart_enhanced.jpg'
-
-let img4 = '/images/охрана кв куб.jpg'
-
-
-
 import Image from "next/image";
 
-const Why_box = ({ text, img, text2, dark = 'rgba(0, 0, 0, 0.5)' }) => {
-  const ismobile = useismobile();
+let img1 = "/images/kkorgau3.jpg";
+let img2 = "/images/kkorgau24.jpg";
+let img3 = '/images/k_standart_enhanced.jpg';
+let img4 = '/images/охрана кв куб.jpg';
 
+const Why_box = ({ text, img, text2, ismobile, dark = 'rgba(0, 0, 0, 0.5)' }) => {
   return (
     <Box
       display="flex"
@@ -39,13 +30,13 @@ const Why_box = ({ text, img, text2, dark = 'rgba(0, 0, 0, 0.5)' }) => {
         width="100%"
         overflow="hidden"
         borderTopLeftRadius={"2.5%"}
-        borderTopRightRadius={ "2.5%"}
+        borderTopRightRadius={"2.5%"}
       >
         <Image
           src={img}
           alt={text}
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: 'cover' }}
           priority
         />
         <Box
@@ -101,7 +92,6 @@ const Why_box = ({ text, img, text2, dark = 'rgba(0, 0, 0, 0.5)' }) => {
         bg="rgb(252, 223, 94)"
         w="100%"
         textAlign="center"
-
       >
         {text2}
       </Box>
@@ -109,11 +99,8 @@ const Why_box = ({ text, img, text2, dark = 'rgba(0, 0, 0, 0.5)' }) => {
   );
 };
 
-
-
 const ProjectsOtherSide = () => {
-
-  const ismobile = useismobile()
+  const ismobile = useismobile();
 
   return (
     <Box
@@ -122,27 +109,34 @@ const ProjectsOtherSide = () => {
       display="flex"
       justifyContent={'space-around'}
       width="100%"
-      flexDirection={ismobile ? 'column' : 'raw'}
+      flexDirection={ismobile ? 'column' : 'row'}
       h={['auto', '500']}
-
     >
-          <Why_box 
-          text="Нам доверяют даже конкуренты" 
-          img={img3} 
-          text2="20+ компаний выбрали нас для аутсорса охраны своих объектов" 
-          dark="rgba(0, 0, 0, 0.25)"
-          />
-          <Why_box text="Сомневаетесь в нас? Выйдите на улицу и убедитесь сами" 
-          img={img4} 
-          text2="тысячи наших стикеров по всему городу показатель качества" />
-          <Why_box 
-          text="Залог нашего успеха" 
-          img={img1} 
-          text2=" профессионализм бойцов и передовое оборудование" />
-          <Why_box 
-          text="Более 20 лет успешной работы в Алматы и Астане" 
-          img={img2} 
-          text2="десятки тысяч клиентов уже выбрали нас" />
+      <Why_box
+        ismobile={ismobile}
+        text="Нам доверяют даже конкуренты"
+        img={img3}
+        text2="20+ компаний выбрали нас для аутсорса охраны своих объектов"
+        dark="rgba(0, 0, 0, 0.25)"
+      />
+      <Why_box
+        ismobile={ismobile}
+        text="Сомневаетесь в нас? Выйдите на улицу и убедитесь сами"
+        img={img4}
+        text2="тысячи наших стикеров по всему городу показатель качества"
+      />
+      <Why_box
+        ismobile={ismobile}
+        text="Залог нашего успеха"
+        img={img1}
+        text2=" профессионализм бойцов и передовое оборудование"
+      />
+      <Why_box
+        ismobile={ismobile}
+        text="Более 20 лет успешной работы в Алматы и Астане"
+        img={img2}
+        text2="десятки тысяч клиентов уже выбрали нас"
+      />
     </Box>
   );
 };

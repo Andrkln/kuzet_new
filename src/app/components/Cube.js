@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, memo } from 'react';
 import { Box, Text, VStack, HStack } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -22,7 +22,7 @@ const Styles = ({ color, width, height, font, transform }) => ({
   userSelect: 'none',
 });
 
-const CubeFace = ({ color, width, height, font, transform, text, TypeText, imageUrl, speed, textColour, 
+const CubeFace = memo(({ color, width, height, font, transform, text, TypeText, imageUrl, speed, textColour, 
   main_text_color='white', 
   link='/kvartity' }) => (
   <Box sx={Styles({ color, width, height, font, transform })}
@@ -32,9 +32,9 @@ const CubeFace = ({ color, width, height, font, transform, text, TypeText, image
         <Image
           src={imageUrl}
           alt="Cube Face"
-          width="180"
-          height="180"
-          sizes="100vw"
+          width={180}
+          height={180}
+          sizes="(max-width: 900px) 45vw, 180px"
         />
       )}
       {text && <Link
@@ -62,7 +62,7 @@ const CubeFace = ({ color, width, height, font, transform, text, TypeText, image
       )}
     </VStack>
   </Box>
-);
+));
 
 const Cube = ({ faces }) => {
   const [rotation, setRotation] = useState({ rotateX: -30, rotateY: 30 });
@@ -104,7 +104,7 @@ const Cube = ({ faces }) => {
   const animateCube = () => {
     if (!isInteracting) {
       setRotation((prev) => ({
-        rotateX: prev.rotateX = - 20,
+        rotateX: -20,
         rotateY: prev.rotateY + 0.3,
       }));
     }
@@ -137,7 +137,7 @@ const Cube = ({ faces }) => {
           height: '32ch',
           transformStyle: 'preserve-3d',
           transform: `rotateX(${rotation.rotateX}deg) rotateY(${rotation.rotateY}deg)`,
-          transition: 'transform 0.1s linear',
+          transition: isInteracting ? 'none' : 'transform 0.1s linear',
           userSelect: 'none',
         }}
         className="Cube"
