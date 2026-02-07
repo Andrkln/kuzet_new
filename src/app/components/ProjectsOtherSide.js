@@ -1,5 +1,5 @@
 'use client'
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Heading  } from "@chakra-ui/react";
 import useismobile from "@/hooks/isMobile";
 
@@ -113,6 +113,20 @@ const Why_box = ({ text, img, text2, dark = 'rgba(0, 0, 0, 0.5)' }) => {
 const ProjectsOtherSide = () => {
 
   const ismobile = useismobile()
+  useEffect(() => {
+    const imageSources = [img1, img2, img3, img4];
+    const preloadedImages = imageSources.map((src) => {
+      const image = new window.Image();
+      image.src = src;
+      return image;
+    });
+
+    return () => {
+      preloadedImages.forEach((image) => {
+        image.src = '';
+      });
+    };
+  }, []);
 
   return (
     <Box

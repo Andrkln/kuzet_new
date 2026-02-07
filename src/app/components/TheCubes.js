@@ -49,10 +49,17 @@ let img29 = "/images/typeeffect.webp";
 
 export const Cube1 = () => {
 const ismobile = useismobile();
-  const width = ismobile ? `30ch` : `30ch`;
-  const z = ismobile ? `15ch` : `15ch`;
+  const cubeDimensions = ismobile
+    ? { width: 26, height: 36, depth: 26 }
+    : { width: 30, height: 30, depth: 30 };
+  const width = `${cubeDimensions.width}ch`;
+  const height = `${cubeDimensions.height}ch`;
+  const depth = `${cubeDimensions.depth}ch`;
+  const halfWidth = `${cubeDimensions.width / 2}ch`;
+  const halfHeight = `${cubeDimensions.height / 2}ch`;
+  const halfDepth = `${cubeDimensions.depth / 2}ch`;
     const cubeFaces = [
-      { color: `rgb(252, 226, 114)`, width: width, height: width, font: `16px`, transform: `rotateY(0deg) translateZ(${z})`, 
+      { color: `rgb(252, 226, 114)`, width: width, height: height, font: `16px`, transform: `rotateY(0deg) translateZ(${halfDepth})`, 
       text: `Охрана квартир`,
       TypeText:`Всего от 7000 тг в месяц...`,
       imageUrl: imgF,
@@ -66,8 +73,8 @@ const ismobile = useismobile();
       color: `
   rgb(252, 226, 114)
       `, 
-      width: width, height: width, 
-      font: `16px`, transform: `rotateY(180deg) translateZ(${z})`,
+      width: width, height: height, 
+      font: `16px`, transform: `rotateY(180deg) translateZ(${halfDepth})`,
       text: `Охрана домов`, 
       TypeText:`От 8000 тг в месяц...`,
       imageUrl: img2,
@@ -79,7 +86,7 @@ const ismobile = useismobile();
       { 
       color: `
     rgb(0, 110, 255)
-      `, width: width, height: width, font: `16px`, transform: `rotateY(90deg) translateZ(${z})`, 
+      `, width: depth, height: height, font: `16px`, transform: `rotateY(90deg) translateZ(${halfWidth})`, 
       text: `Охрана бизнеса`, 
       TypeText:`От 15 000 тг в месяц...`,
       imageUrl: imgBS,
@@ -91,8 +98,8 @@ const ismobile = useismobile();
       { 
 
       color: `rgb(0, 110, 255)`, 
-      width: width, height: width, 
-      font: `16px`, transform: `rotateY(-90deg) translateZ(${z})`, 
+      width: depth, height: height, 
+      font: `16px`, transform: `rotateY(-90deg) translateZ(${halfWidth})`, 
       text: `Особые услуги`, 
       TypeText:`Цена договорная...`,
       imageUrl: imgP,
@@ -101,12 +108,20 @@ const ismobile = useismobile();
       speed: 60,
       link: '/special_service'
     },
-      { color: `black`, width: width, height: width, font: `16px`, transform: `rotateX(90deg) translateZ(${z})`, 
+      { color: `black`, width: width, height: depth, font: `16px`, transform: `rotateX(90deg) translateZ(${halfHeight})`, 
       speed: 100 
     
     },
-      { color: `orange`, width: width, height: width, font: `16px`, transform: `rotateX(-90deg) translateZ(${z})`,},
+      { color: `orange`, width: width, height: depth, font: `16px`, transform: `rotateX(-90deg) translateZ(${halfHeight})`,},
     ];
   
-    return <Cube faces={cubeFaces} />;
+    return (
+      <Cube
+        faces={cubeFaces}
+        dimensions={{
+          width,
+          containerHeight: ismobile ? `${cubeDimensions.height + 4}ch` : '32ch',
+        }}
+      />
+    );
   };

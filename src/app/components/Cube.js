@@ -64,12 +64,14 @@ const CubeFace = ({ color, width, height, font, transform, text, TypeText, image
   </Box>
 );
 
-const Cube = ({ faces }) => {
+const Cube = ({ faces, dimensions }) => {
   const [rotation, setRotation] = useState({ rotateX: -30, rotateY: 30 });
   const [isInteracting, setIsInteracting] = useState(false);
   const isDragging = useRef(false);
   const startPos = useRef({ x: 0, y: 0 });
   const animationFrameRef = useRef(null);
+  const cubeWidth = dimensions?.width ?? '30ch';
+  const cubeHeight = dimensions?.containerHeight ?? '32ch';
 
   const handleStart = (e) => {
     setIsInteracting(true);
@@ -104,7 +106,7 @@ const Cube = ({ faces }) => {
   const animateCube = () => {
     if (!isInteracting) {
       setRotation((prev) => ({
-        rotateX: prev.rotateX = - 20,
+        rotateX: -20,
         rotateY: prev.rotateY + 0.3,
       }));
     }
@@ -133,8 +135,8 @@ const Cube = ({ faces }) => {
       <Box
         sx={{
           position: 'relative',
-          width: '30ch',
-          height: '32ch',
+          width: cubeWidth,
+          height: cubeHeight,
           transformStyle: 'preserve-3d',
           transform: `rotateX(${rotation.rotateX}deg) rotateY(${rotation.rotateY}deg)`,
           transition: 'transform 0.1s linear',
