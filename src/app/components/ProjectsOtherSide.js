@@ -128,6 +128,14 @@ const ProjectsOtherSide = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const sources = [img1, img2, img3, img4];
+    sources.forEach((src) => {
+      const preloadedImage = new window.Image();
+      preloadedImage.src = src;
+    });
+  }, []);
+
   return (
     <Box
       className="QualityBox"

@@ -49,15 +49,27 @@ let img29 = "/images/typeeffect.webp";
 
 export const Cube1 = () => {
 const ismobile = useismobile();
-  const cubeDimensions = ismobile
-    ? { width: 26, height: 36, depth: 26 }
-    : { width: 30, height: 30, depth: 30 };
-  const width = `${cubeDimensions.width}ch`;
-  const height = `${cubeDimensions.height}ch`;
-  const depth = `${cubeDimensions.depth}ch`;
-  const halfWidth = `${cubeDimensions.width / 2}ch`;
-  const halfHeight = `${cubeDimensions.height / 2}ch`;
-  const halfDepth = `${cubeDimensions.depth / 2}ch`;
+  const dimensions = ismobile
+    ? {
+        width: '28ch',
+        height: '36ch',
+        depth: '20ch',
+        halfWidth: '14ch',
+        halfHeight: '18ch',
+        halfDepth: '10ch',
+        containerHeight: '38ch',
+      }
+    : {
+        width: '30ch',
+        height: '30ch',
+        depth: '30ch',
+        halfWidth: '15ch',
+        halfHeight: '15ch',
+        halfDepth: '15ch',
+        containerHeight: '32ch',
+      };
+
+  const { width, height, depth, halfWidth, halfHeight, halfDepth, containerHeight } = dimensions;
     const cubeFaces = [
       { color: `rgb(252, 226, 114)`, width: width, height: height, font: `16px`, transform: `rotateY(0deg) translateZ(${halfDepth})`, 
       text: `Охрана квартир`,
@@ -113,15 +125,7 @@ const ismobile = useismobile();
     
     },
       { color: `orange`, width: width, height: depth, font: `16px`, transform: `rotateX(-90deg) translateZ(${halfHeight})`,},
-    ];
-  
-    return (
-      <Cube
-        faces={cubeFaces}
-        dimensions={{
-          width,
-          containerHeight: ismobile ? `${cubeDimensions.height + 4}ch` : '32ch',
-        }}
-      />
-    );
+    ];\n  
+    return <Cube faces={cubeFaces} containerWidth={width} containerHeight={containerHeight} />;
   };
+
