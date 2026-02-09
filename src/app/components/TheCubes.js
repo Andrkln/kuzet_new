@@ -125,7 +125,8 @@ const ismobile = useismobile();
     
     },
       { color: `orange`, width: width, height: depth, font: `16px`, transform: `rotateX(-90deg) translateZ(${halfHeight})`,},
-    ];\n  
+    ];
+  
     return <Cube faces={cubeFaces} containerWidth={width} containerHeight={containerHeight} />;
   };
 

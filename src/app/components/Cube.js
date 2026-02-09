@@ -135,18 +135,8 @@ const Cube = ({ faces, containerWidth = '30ch', containerHeight = '32ch' }) => {
       <Box
         sx={{
           position: 'relative',
-<<<<<<< HEAD
           width: cubeWidth,
           height: cubeHeight,
-=======
-          width: containerWidth,
-          height: containerHeight,
->>>>>>> 1984bfb0 (Adjust cube geometry and preload project images)
-          transformStyle: 'preserve-3d',
-          transform: `rotateX(${rotation.rotateX}deg) rotateY(${rotation.rotateY}deg)`,
-          transition: 'transform 0.1s linear',
-          userSelect: 'none',
-        }}
         className="Cube"
       >
         {faces.map((face, index) => (
