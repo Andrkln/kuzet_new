@@ -137,6 +137,11 @@ const Cube = ({ faces, containerWidth = '30ch', containerHeight = '32ch' }) => {
           position: 'relative',
           width: cubeWidth,
           height: cubeHeight,
+          transformStyle: 'preserve-3d',
+          transform: `rotateX(${rotation.rotateX}deg) rotateY(${rotation.rotateY}deg)`,
+          transition: 'transform 0.1s linear',
+          userSelect: 'none',
+        }}
         className="Cube"
       >
         {faces.map((face, index) => (
